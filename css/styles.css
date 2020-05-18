@@ -1,0 +1,236 @@
+* {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+*:hover {
+  text-decoration: none;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+a:not([class]) {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+body {
+  font-family: "Chakra Petch", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.navbar .nav-right-container .link span:before, .navbar .dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
+  content: '';
+  width: 9px;
+  height: 1px;
+  background-color: #110038;
+  position: absolute;
+}
+
+.flexCenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.container {
+  margin: 0 4rem;
+  max-width: 1600px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 2px;
+}
+
+.btn-primary span {
+  display: inline-block;
+  padding: 0.25rem 1.5rem;
+}
+
+.btn-primary.wicon {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 2px;
+}
+
+.btn-primary.wicon span {
+  padding: 0rem 0.75rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+.btn-primary.wicon span img {
+  min-width: 10px;
+}
+
+h1 {
+  font-size: 12px;
+  padding: 4px 8px;
+  font-weight: normal;
+}
+
+header {
+  margin-top: 1px;
+  -webkit-box-shadow: 0 1px 0 0 #110038;
+          box-shadow: 0 1px 0 0 #110038;
+}
+
+.navbar {
+  margin-top: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.navbar .nav-right-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap wrap;
+          flex-flow: row nowrap wrap;
+}
+
+.navbar .nav-right-container .nav-item {
+  margin-left: 1rem;
+}
+
+.navbar .nav-right-container .link {
+  padding: 0.35rem 0.5rem 0.35rem 0;
+}
+
+.navbar .nav-right-container .link span {
+  position: relative;
+}
+
+.navbar .nav-right-container .link span:before {
+  top: 20px;
+}
+
+.navbar .dropdown-container {
+  position: relative;
+}
+
+.navbar .dropdown-container .dropdown-button {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap wrap;
+          flex-flow: row nowrap wrap;
+}
+
+.navbar .dropdown-container .dropdown-button div:last-child {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.navbar .dropdown-container .dropdown-button div:last-child span {
+  -ms-flex-item-align: stretch;
+      -ms-grid-row-align: stretch;
+      align-self: stretch;
+}
+
+.navbar .dropdown-container #dropdown-menu {
+  position: absolute;
+  width: 100%;
+  display: none;
+}
+
+.navbar .dropdown-container #dropdown-menu .dropdown-menu-item {
+  position: relative;
+  display: block;
+  padding: 0.5rem 1rem;
+  margin: 10px;
+}
+
+.navbar .dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
+  top: 28px;
+}
+/*# sourceMappingURL=styles.css.map */
