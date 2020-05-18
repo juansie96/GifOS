@@ -1,0 +1,22 @@
+// Variables
+
+$backgroundColor: #fff4fd;
+$gradient: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+
+$textWhite: #fff;
+
+
+// General Styles
+body {
+    background: $backgroundColor;
+}
+
+h1 {
+    color: $textWhite;
+}
+
+// Section styles
+
+header {
+    background: $gradient;
+}

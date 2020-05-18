@@ -1,5 +1,30 @@
-$backgroundColor: #333;
+@import "reset";
+@import "extends";
+@import "mixins";
+
+// Utilities
+
+.flexCenter {
+    @include flexCenter();
+}
+
+// General Styles
 
 body {
-    background: $backgroundColor;
+    @extend %fontStack;
+}
+
+h1 {
+    font-size: 12px;
+    padding: 4px 8px;
+    font-weight: normal;
+}
+
+// Components 
+
+// Sections
+
+header {
+    margin-top: 1px;
+    box-shadow: 0 1px 0 0 #110038;
 }
