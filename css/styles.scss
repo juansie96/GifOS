@@ -8,6 +8,38 @@
     @include flexCenter();
 }
 
+.container {
+    margin: 0 4rem;
+    max-width: 1600px;
+}
+
+.underline {
+    border-bottom: 1px solid;
+}
+
+// Components 
+
+.btn-primary {
+    display: inline-block;
+    padding: 2px;
+    span {
+        display: inline-block;
+        padding: 0.25rem 1.5rem;
+    }
+}
+
+.btn-primary.wicon {
+    @include flexCenter();
+    padding: 2px;
+    span {
+        padding: 0rem 0.75rem;
+        @include flexCenter();
+        img {
+            min-width: 10px;
+        }
+    }
+}
+
 // General Styles
 
 body {
@@ -20,11 +52,14 @@ h1 {
     font-weight: normal;
 }
 
-// Components 
 
 // Sections
 
 header {
     margin-top: 1px;
     box-shadow: 0 1px 0 0 #110038;
+}
+
+.navbar {
+    margin-top: 40px;
 }

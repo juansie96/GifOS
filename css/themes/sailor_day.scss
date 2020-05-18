@@ -1,14 +1,37 @@
 // Variables
 
-$backgroundColor: #fff4fd;
+$backgroundPage: #fff4fd;
+$backgroundGray: #E6E6E6;
 $gradient: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
 
+$buttonColor: #F7C9F3;
+$buttonHoverColor: #dbacd7;
+
 $textWhite: #fff;
+$textDarkMain: #110038;
+$textDisable: #B4B4B4;
+
+// Utility
+
+.btn-primary {
+    background: $buttonColor;
+    border: 1px solid $textDarkMain;
+    box-shadow: inset -1px -1px 0 0 #997D97,
+    inset 1px 1px 0 0 #FFFFFF;
+    &:hover {
+        background-color: $buttonHoverColor;
+        span {
+            border: 1px dotted $textDarkMain;
+        }
+    }
+}
+
+// Components
 
 
 // General Styles
 body {
-    background: $backgroundColor;
+    background: $backgroundPage;
 }
 
 h1 {
