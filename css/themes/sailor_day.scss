@@ -13,11 +13,17 @@ $textDisable: #B4B4B4;
 
 // Utility
 
+
+// Components
+
 .btn-primary {
     background: $buttonColor;
     border: 1px solid $textDarkMain;
     box-shadow: inset -1px -1px 0 0 #997D97,
     inset 1px 1px 0 0 #FFFFFF;
+    span {
+        border: 1px dotted transparent;
+    }
     &:hover {
         background-color: $buttonHoverColor;
         span {
@@ -25,8 +31,6 @@ $textDisable: #B4B4B4;
         }
     }
 }
-
-// Components
 
 
 // General Styles
@@ -38,8 +42,60 @@ h1 {
     color: $textWhite;
 }
 
+p, a { 
+    color: $textDarkMain
+}
+
 // Section styles
 
 header {
     background: $gradient;
 }
+
+.navbar {
+    .site-logo{
+        height: 4rem;
+        width: 6.5rem;
+        background: url(../../assets/imgs/gifOF_logo.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: auto;
+    }
+
+    .nav-right-container {
+
+        .dropdown-button:hover {
+            * {
+                background: $buttonHoverColor;
+
+                span {
+                    border: 1px dotted $textDarkMain;
+                }
+            }
+        }
+
+        .link:hover {
+            border: 1px dotted $textDarkMain;
+        }
+
+        .dropdown-menu {
+            background: $backgroundGray;
+            box-shadow: inset -2px -2px 0 0 #B4B4B4,
+            inset 2px 2px 0 0 #FFFFFF;
+
+            .dropdown-menu-item {
+                background: #F0F0F0;
+                border: 1px solid #808080;
+                box-shadow: inset -1px -1px 0 0 #B4B4B4,
+                inset 1px 1px 0 0 #FFFFFF;
+
+                &:hover {
+                    background: #FFF4FD;
+                    border: 1px solid #CCA6C9;
+                    box-shadow: inset -1px -1px 0 0 #E6DCE4,
+                    inset 1px 1px 0 0 #FFFFFF;
+                }
+            } // drop-down-menu item
+        } // dropdown-menu
+    } // nav-right-container
+} // navbar

@@ -8,3 +8,11 @@
 	font-size: 1rem;
 	font-weight: 700;
 }
+%underline-pseudo {
+	content: '';
+	width: 9px;
+	height: 1px;
+	background-color: #110038;
+	position: absolute;
+
+}
