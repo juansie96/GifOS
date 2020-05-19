@@ -49,6 +49,9 @@ h1 {
     font-weight: normal;
 }
 
+button {
+    cursor: pointer;
+}
 
 // Sections
 
@@ -58,7 +61,6 @@ header {
 }
 
 .navbar {
-
     margin-top: 40px;
     @include flexCenter();
     justify-content: space-between;
@@ -102,6 +104,7 @@ header {
             position: absolute;
             width: 100%;
             display: none;
+            z-index: 1;
 
             .dropdown-menu-item {
                 position: relative;
@@ -116,6 +119,74 @@ header {
             } // dropdown-menu-item
         } // dropdown-menu
     } // dropdown-container
+} // navbar
 
+#search {
+    margin-top: 2rem;
+    position: relative;
 
-}
+    .search-form-container {
+        padding: 2px;
+    }
+
+    .search-header {
+        padding: 5px;
+    }
+
+    form {
+        padding: 0.8rem 1rem;
+        @include flexCenter(row nowrap);
+        justify-content: space-between;
+
+        input {
+            padding: 0.8rem 1rem;
+            width: 100%;
+            margin-right: 0.5rem;
+        }
+
+        button[type=submit] {
+            flex-grow: 1;
+            max-width: fit-content;
+
+            span {
+                padding: 0.3rem 1rem;
+
+                p {
+                    @include flexCenter(row wrap);
+                }
+            }
+        } // submit button
+    } // form
+
+    .search-results-container {
+        position: absolute;
+        width: 100%;   
+    }
+
+    .search-results { 
+        padding: 0.7rem 1rem;
+    }
+
+    .search-result-item {
+        width: 100%;
+        display: inline-block;
+        margin: 0.25rem 0;
+        text-align: left;
+        padding: 2px;
+
+        span {
+            padding: 0.35rem 1rem;
+            display: inline-block;
+            width: 100%;
+        }
+    } // search-result-item
+
+    .search-tags {
+        margin-top: 1rem;
+
+        .tag {
+            padding: 0.5rem;
+            margin-right: 0.5rem;
+        }
+    }
+} // search

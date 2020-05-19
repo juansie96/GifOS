@@ -11,6 +11,7 @@ $textWhite: #fff;
 $textDarkMain: #110038;
 $textDisable: #B4B4B4;
 
+
 // Utility
 
 
@@ -30,6 +31,33 @@ $textDisable: #B4B4B4;
             border: 1px dotted $textDarkMain;
         }
     }
+} // btn-primary
+
+.search-result-item {
+    background: #F0F0F0;
+    border: 1px solid #808080;
+    box-shadow: inset -1px -1px 0 0 #B4B4B4,
+    inset 1px 1px 0 0 #FFFFFF;
+
+    span {
+        border: 1px dotted transparent;
+    }
+
+    &:hover {
+        background: #E6E6E6;
+        span {
+            border: 1px dotted $textDarkMain;
+        }
+    }
+} // search-result-item
+
+.tag {
+    background: #4180F6;
+    border: 1px solid #4C2F99;
+    box-shadow: inset -2px -2px 0 0 #284F99,
+    inset 2px 2px 0 0 #FFFFFF;
+    color: #fff;
+    font-size: 14px;
 }
 
 
@@ -99,3 +127,77 @@ header {
         } // dropdown-menu
     } // nav-right-container
 } // navbar
+
+#search {
+
+    .search-form-container {
+        background: #E6E6E6;
+        box-shadow: inset -2px -2px 0 0 #B4B4B4,
+        inset 2px 2px 0 0 #FFFFFF;
+
+    }
+
+    .search-header {
+        background: $gradient;
+        color: $textWhite;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    form {
+        background: $backgroundGray;
+
+        input {
+            background: #FFFFFF;
+            border: 1px solid #979797;
+            box-shadow: inset -2px -2px 0 0 #E6E6E6,
+            inset 2px 2px 0 0 #000000;
+
+            &::placeholder {
+                font-size: 16px;
+                color: $textDisable;
+            }
+        } // input
+
+        
+        button[type="submit"] {
+            p::before {
+                content: "";
+                background: url(../../assets/icons/lupa.svg) no-repeat;
+                width: 1rem;
+                height: 1rem;
+                margin-right: 0.5rem;
+            }
+        } //button-submit
+
+        input:placeholder-shown ~ button[type="submit"] {
+            cursor: default;
+            background: $backgroundGray;
+            border: 1px solid #808080;
+            box-shadow: inset -1px -1px 0 0 #B4B4B4,
+            inset 1px 1px 0 0 #FFFFFF;
+
+            &:hover {
+                span {
+                    border-color: transparent;
+                }
+            }
+
+            p {
+                color: $textDisable;
+                &::before {
+                    background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
+                } 
+            }
+        } //button-submit-placeholderActive
+    } // form
+
+    .search-results-container {
+
+        .search-results {
+            background: $backgroundGray;
+            box-shadow: inset -2px -2px 0 0 #B4B4B4,
+            inset 2px 2px 0 0 #FFFFFF;
+        }
+    }
+} // search

@@ -126,6 +126,10 @@ h1 {
   font-weight: normal;
 }
 
+button {
+  cursor: pointer;
+}
+
 header {
   margin-top: 1px;
   -webkit-box-shadow: 0 1px 0 0 #110038;
@@ -221,6 +225,7 @@ header {
   position: absolute;
   width: 100%;
   display: none;
+  z-index: 1;
 }
 
 .navbar .dropdown-container #dropdown-menu .dropdown-menu-item {
@@ -232,5 +237,105 @@ header {
 
 .navbar .dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
   top: 28px;
+}
+
+#search {
+  margin-top: 2rem;
+  position: relative;
+}
+
+#search .search-form-container {
+  padding: 2px;
+}
+
+#search .search-header {
+  padding: 5px;
+}
+
+#search form {
+  padding: 0.8rem 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap wrap;
+          flex-flow: row nowrap wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#search form input {
+  padding: 0.8rem 1rem;
+  width: 100%;
+  margin-right: 0.5rem;
+}
+
+#search form button[type=submit] {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+
+#search form button[type=submit] span {
+  padding: 0.3rem 1rem;
+}
+
+#search form button[type=submit] span p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap wrap;
+          flex-flow: row wrap wrap;
+}
+
+#search .search-results-container {
+  position: absolute;
+  width: 100%;
+}
+
+#search .search-results {
+  padding: 0.7rem 1rem;
+}
+
+#search .search-result-item {
+  width: 100%;
+  display: inline-block;
+  margin: 0.25rem 0;
+  text-align: left;
+  padding: 2px;
+}
+
+#search .search-result-item span {
+  padding: 0.35rem 1rem;
+  display: inline-block;
+  width: 100%;
+}
+
+#search .search-tags {
+  margin-top: 1rem;
+}
+
+#search .search-tags .tag {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
 }
 /*# sourceMappingURL=styles.css.map */

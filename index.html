@@ -46,7 +46,35 @@
             </a>
         </div>
     </nav>
-    <main></main>
+    <main class="container">
+        <section id="search">
+            <div class="search-form-container">
+                <div class="search-header">Buscar</div>
+                <form>
+                    <input type="text" id="search-input" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
+                    <button type="submit" id="submit-btn" class="btn-primary" disabled>
+                        <span>
+                            <p>Buscar</p>
+                        </span>
+                    </button>
+                </form>
+            </div>
+            <div class="search-results-container">
+                <div class="search-results">
+                    <button class="search-result-item">
+                        <span>Resultado de búsqueda sugerido</span>
+                    </button>
+                    <button class="search-result-item">
+                        <span>Un resultado similar de búsqueda</span>
+                    </button>
+                </div>
+                <div class="search-tags">
+                    <button class="tag">#Un ejemplo</button>
+                    <button class="tag">#Tags Relacionados</button>
+                </div>
+            </div>
+        </section>
+    </main>
     <footer></footer>
     <script src="./js/main.js"></script>
 </body>

@@ -17,6 +17,34 @@
   border: 1px dotted #110038;
 }
 
+.search-result-item {
+  background: #F0F0F0;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+.search-result-item span {
+  border: 1px dotted transparent;
+}
+
+.search-result-item:hover {
+  background: #E6E6E6;
+}
+
+.search-result-item:hover span {
+  border: 1px dotted #110038;
+}
+
+.tag {
+  background: #4180F6;
+  border: 1px solid #4C2F99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
+  color: #fff;
+  font-size: 14px;
+}
+
 body {
   background: #fff4fd;
 }
@@ -73,5 +101,84 @@ header {
   border: 1px solid #CCA6C9;
   -webkit-box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #E6DCE4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#search .search-form-container {
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+#search .search-header {
+  background: -webkit-gradient(linear, right top, left top, from(#F7C9F3), to(#4180F6));
+  background: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+#search form {
+  background: #E6E6E6;
+}
+
+#search form input {
+  background: #FFFFFF;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #E6E6E6, inset 2px 2px 0 0 #000000;
+}
+
+#search form input::-webkit-input-placeholder {
+  font-size: 16px;
+  color: #B4B4B4;
+}
+
+#search form input:-ms-input-placeholder {
+  font-size: 16px;
+  color: #B4B4B4;
+}
+
+#search form input::-ms-input-placeholder {
+  font-size: 16px;
+  color: #B4B4B4;
+}
+
+#search form input::placeholder {
+  font-size: 16px;
+  color: #B4B4B4;
+}
+
+#search form button[type="submit"] p::before {
+  content: "";
+  background: url(../../assets/icons/lupa.svg) no-repeat;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"] {
+  cursor: default;
+  background: #E6E6E6;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+          box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"]:hover span {
+  border-color: transparent;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"] p {
+  color: #B4B4B4;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"] p::before {
+  background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
+}
+
+#search .search-results-container .search-results {
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
 }
 /*# sourceMappingURL=sailor_day.css.map */
