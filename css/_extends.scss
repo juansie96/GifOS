@@ -10,11 +10,18 @@
 	font-weight: 700;
 }
 
-%underline-pseudo {
+%beforeUnderline {
 	content: '';
 	width: 9px;
 	height: 1px;
 	background-color: #110038;
 	position: absolute;
+}
 
+%gridContainer {
+	margin-top: 1.3rem;
+	display: grid;
+	grid-template: 1fr / repeat(4, 1fr);
+	grid-gap: 1rem;
+	grid-auto-flow: dense;
 }

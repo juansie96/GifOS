@@ -13,6 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet" />
 </head>
 <body>
+
     <header>
         <h1>¡Bienvenidos/as a Guifos.com! ——————Donde los gifs están.////// Número de visitas: 12.765.803</h1>
     </header>
@@ -21,6 +22,7 @@
         <a href="#">
             <div class="site-logo"></div>
         </a>
+
         <div class="nav-right-container">
             <a href="#" class="nav-item btn-primary">
                 <span>Crear Guifos</span>
@@ -45,9 +47,14 @@
                 <span>Mis Guifos</span>
             </a>
         </div>
+
     </nav>
+
+
     <main class="container">
+
         <section id="search">
+
             <div class="search-form-container">
                 <div class="search-header">Buscar</div>
                 <form>
@@ -59,23 +66,43 @@
                     </button>
                 </form>
             </div>
-            <div class="search-results-container">
-                <div class="search-results">
-                    <button class="search-result-item">
-                        <span>Resultado de búsqueda sugerido</span>
-                    </button>
-                    <button class="search-result-item">
-                        <span>Un resultado similar de búsqueda</span>
-                    </button>
-                </div>
-                <div class="search-tags">
-                    <button class="tag">#Un ejemplo</button>
-                    <button class="tag">#Tags Relacionados</button>
-                </div>
+
+            <div class="suggestions-container" style="display: none">
+                <button class="suggestion">
+                    <span>Resultado de búsqueda sugerido</span>
+                </button>
+                <button class="suggestion">
+                    <span>Un resultado similar de búsqueda</span>
+                </button>
             </div>
+
+            <div class="search-tags">
+                <button class="tag">#Un ejemplo</button>
+                <button class="tag">#Tags Relacionados</button>
+            </div>
+
+            <section id="search-results">
+                <div class="header-text">
+                    <span>Hoy te sugerimos:</span>
+                </div>
+                <div class="suggestions-gifs-container"></div>
+            </section>
+
+        </section>
+
+
+        <section id="trends">
+            <div class="header-text">
+                <span>Tendencias:</span>
+            </div>
+
+            <div class="trends-gifs-container"></div>
         </section>
     </main>
+
+
     <footer></footer>
+
     <script src="./js/main.js"></script>
 </body>
 </html>

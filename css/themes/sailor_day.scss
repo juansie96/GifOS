@@ -33,7 +33,7 @@ $textDisable: #B4B4B4;
     }
 } // btn-primary
 
-.search-result-item {
+.suggestion {
     background: #F0F0F0;
     border: 1px solid #808080;
     box-shadow: inset -1px -1px 0 0 #B4B4B4,
@@ -60,8 +60,17 @@ $textDisable: #B4B4B4;
     font-size: 14px;
 }
 
+.header-text {
+    font-size: 14px;
+    background: #FFFAFE;
+    border: 1px solid #E6BBE2;
+    box-shadow: inset -2px -2px 0 0 #E6DCE4,
+    inset 2px 2px 0 0 #80687D;
+}
+
 
 // General Styles
+
 body {
     background: $backgroundPage;
 }
@@ -192,12 +201,9 @@ header {
         } //button-submit-placeholderActive
     } // form
 
-    .search-results-container {
-
-        .search-results {
-            background: $backgroundGray;
-            box-shadow: inset -2px -2px 0 0 #B4B4B4,
-            inset 2px 2px 0 0 #FFFFFF;
-        }
+    .suggestions-container {
+        background: $backgroundGray;
+        box-shadow: inset -2px -2px 0 0 #B4B4B4,
+        inset 2px 2px 0 0 #FFFFFF;
     }
 } // search

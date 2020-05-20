@@ -37,6 +37,25 @@
     }
 }
 
+.header-text {
+    padding: 0.5rem;
+}
+
+.gif-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    &.double {
+        grid-column: span 2;
+    }
+
+    .gif-element {
+        height: 350px;
+        width: 100%;
+    }
+}
+
 // General Styles
 
 body {
@@ -60,6 +79,10 @@ header {
     box-shadow: 0 1px 0 0 #110038;
 }
 
+section {
+    margin-top: 4rem;
+}
+
 .navbar {
     margin-top: 40px;
     @include flexCenter();
@@ -77,7 +100,7 @@ header {
             span {
                 position: relative;
                 &:before {
-                    @extend %underline-pseudo;
+                    @extend %beforeUnderline;
                     top: 20px;
                 }
             }
@@ -113,7 +136,7 @@ header {
                 margin: 10px;
 
                 &:hover:before {
-                    @extend %underline-pseudo;
+                    @extend %beforeUnderline;
                     top: 28px;
                 }
             } // dropdown-menu-item
@@ -158,16 +181,13 @@ header {
         } // submit button
     } // form
 
-    .search-results-container {
+    .suggestions-container {
         position: absolute;
         width: 100%;   
-    }
-
-    .search-results { 
         padding: 0.7rem 1rem;
     }
 
-    .search-result-item {
+    .suggestion {
         width: 100%;
         display: inline-block;
         margin: 0.25rem 0;
@@ -179,7 +199,7 @@ header {
             display: inline-block;
             width: 100%;
         }
-    } // search-result-item
+    } // suggestion
 
     .search-tags {
         margin-top: 1rem;
@@ -189,4 +209,15 @@ header {
             margin-right: 0.5rem;
         }
     }
+
+    .suggestions-gifs-container {
+        @extend %gridContainer;
+    }
 } // search
+
+#trends {
+    .trends-gifs-container {
+        @extend %gridContainer;
+    }
+}
+

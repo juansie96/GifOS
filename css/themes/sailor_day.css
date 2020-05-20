@@ -17,22 +17,22 @@
   border: 1px dotted #110038;
 }
 
-.search-result-item {
+.suggestion {
   background: #F0F0F0;
   border: 1px solid #808080;
   -webkit-box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
           box-shadow: inset -1px -1px 0 0 #B4B4B4, inset 1px 1px 0 0 #FFFFFF;
 }
 
-.search-result-item span {
+.suggestion span {
   border: 1px dotted transparent;
 }
 
-.search-result-item:hover {
+.suggestion:hover {
   background: #E6E6E6;
 }
 
-.search-result-item:hover span {
+.suggestion:hover span {
   border: 1px dotted #110038;
 }
 
@@ -43,6 +43,14 @@
           box-shadow: inset -2px -2px 0 0 #284F99, inset 2px 2px 0 0 #FFFFFF;
   color: #fff;
   font-size: 14px;
+}
+
+.header-text {
+  font-size: 14px;
+  background: #FFFAFE;
+  border: 1px solid #E6BBE2;
+  -webkit-box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
+          box-shadow: inset -2px -2px 0 0 #E6DCE4, inset 2px 2px 0 0 #80687D;
 }
 
 body {
@@ -176,7 +184,7 @@ header {
   background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
 }
 
-#search .search-results-container .search-results {
+#search .suggestions-container {
   background: #E6E6E6;
   -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
           box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
