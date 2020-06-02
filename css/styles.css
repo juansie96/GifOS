@@ -51,7 +51,7 @@ body {
   position: absolute;
 }
 
-#search .suggestions-gifs-container, #trends .trends-gifs-container {
+#search-results .suggested-gifs-container, #trends .trends-gifs-container {
   margin-top: 1.3rem;
   display: -ms-grid;
   display: grid;
@@ -79,8 +79,8 @@ body {
 }
 
 .container {
-  margin: 0 4rem;
-  max-width: 1600px;
+  margin: auto;
+  max-width: 1350px;
 }
 
 .btn-primary {
@@ -135,6 +135,11 @@ body {
   padding: 0.5rem;
 }
 
+.tag {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
 .gif-container {
   width: 100%;
   overflow: hidden;
@@ -145,9 +150,46 @@ body {
   grid-column: span 2;
 }
 
-.gif-container .gif-element {
+.gif-container .gif-image {
   height: 350px;
   width: 100%;
+}
+
+.gif-container .tag {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 0.7rem;
+}
+
+.gif-container .gif-header-container {
+  padding: 4px;
+  width: 100%;
+}
+
+.gif-container .gif-header-container span {
+  padding: 2px;
+}
+
+.gif-container .button-close {
+  position: absolute;
+  right: 12px;
+  top: 11px;
+}
+
+.gif-bottom-container {
+  position: relative;
+}
+
+.gif-bottom-container .gif-footer-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: none;
+  padding: 5px;
+}
+
+.gif-bottom-container:hover .gif-footer-container {
+  display: block;
 }
 
 h1 {
@@ -365,8 +407,7 @@ section {
   margin-top: 1rem;
 }
 
-#search .search-tags .tag {
-  padding: 0.5rem;
-  margin-right: 0.5rem;
+#search-results .suggested-gifs-container .gif-container {
+  padding: 4px;
 }
 /*# sourceMappingURL=styles.css.map */

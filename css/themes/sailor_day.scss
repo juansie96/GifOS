@@ -1,209 +1,238 @@
 // Variables
 
 $backgroundPage: #fff4fd;
-$backgroundGray: #E6E6E6;
-$gradient: linear-gradient(270deg, #F7C9F3 0%, #4180F6 100%);
+$backgroundGray: #e6e6e6;
+$gradient: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
 
-$buttonColor: #F7C9F3;
+$buttonColor: #f7c9f3;
 $buttonHoverColor: #dbacd7;
 
 $textWhite: #fff;
 $textDarkMain: #110038;
-$textDisable: #B4B4B4;
-
+$textDisable: #b4b4b4;
 
 // Utility
-
 
 // Components
 
 .btn-primary {
-    background: $buttonColor;
-    border: 1px solid $textDarkMain;
-    box-shadow: inset -1px -1px 0 0 #997D97,
-    inset 1px 1px 0 0 #FFFFFF;
+  background: $buttonColor;
+  border: 1px solid $textDarkMain;
+  box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+  span {
+    border: 1px dotted transparent;
+  }
+  &:hover {
+    background-color: $buttonHoverColor;
     span {
-        border: 1px dotted transparent;
+      border: 1px dotted $textDarkMain;
     }
-    &:hover {
-        background-color: $buttonHoverColor;
-        span {
-            border: 1px dotted $textDarkMain;
-        }
-    }
+  }
 } // btn-primary
 
 .suggestion {
-    background: #F0F0F0;
-    border: 1px solid #808080;
-    box-shadow: inset -1px -1px 0 0 #B4B4B4,
-    inset 1px 1px 0 0 #FFFFFF;
+  background: #f0f0f0;
+  border: 1px solid #808080;
+  box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 
+  span {
+    border: 1px dotted transparent;
+  }
+
+  &:hover {
+    background: #e6e6e6;
     span {
-        border: 1px dotted transparent;
+      border: 1px dotted $textDarkMain;
     }
-
-    &:hover {
-        background: #E6E6E6;
-        span {
-            border: 1px dotted $textDarkMain;
-        }
-    }
+  }
 } // search-result-item
 
 .tag {
-    background: #4180F6;
-    border: 1px solid #4C2F99;
-    box-shadow: inset -2px -2px 0 0 #284F99,
-    inset 2px 2px 0 0 #FFFFFF;
-    color: #fff;
-    font-size: 14px;
+  background: #4180f6;
+  border: 1px solid #4c2f99;
+  box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
+  color: #fff;
+  font-size: 14px;
+
+  &:hover {
+    outline: 1px dotted #110038;
+    outline-offset: -5px;
+    background: #3a72db;
+  }
 }
 
 .header-text {
-    font-size: 14px;
-    background: #FFFAFE;
-    border: 1px solid #E6BBE2;
-    box-shadow: inset -2px -2px 0 0 #E6DCE4,
-    inset 2px 2px 0 0 #80687D;
+  font-size: 14px;
+  background: #fffafe;
+  border: 1px solid #e6bbe2;
+  box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
 }
 
+.gif-bottom-container {
+  &:hover {
+    outline: 1px dotted #110038;
+    outline-offset: -2px;
+
+    .tag {
+      outline: 1px dotted #110038;
+      outline-offset: -5px;
+    }
+  } // gif-bottom-container hover
+
+  .gif-footer-container {
+    background: $gradient;
+
+    span {
+      color: $textWhite;
+      font-size: 14px;
+      font-weight: 700;
+    }
+  }
+} // gif-bottom-container
 
 // General Styles
 
 body {
-    background: $backgroundPage;
+  background: $backgroundPage;
 }
 
 h1 {
-    color: $textWhite;
+  color: $textWhite;
 }
 
-p, a { 
-    color: $textDarkMain
+p,
+a {
+  color: $textDarkMain;
 }
 
 // Section styles
 
 header {
-    background: $gradient;
+  background: $gradient;
 }
 
 .navbar {
-    .site-logo{
-        height: 4rem;
-        width: 6.5rem;
-        background: url(../../assets/imgs/gifOF_logo.png);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: auto;
+  .site-logo {
+    height: 4rem;
+    width: 6.5rem;
+    background: url(../../assets/imgs/gifOF_logo.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: auto;
+  }
+
+  .nav-right-container {
+    .dropdown-button:hover {
+      * {
+        background: $buttonHoverColor;
+
+        span {
+          border: 1px dotted $textDarkMain;
+        }
+      }
     }
 
-    .nav-right-container {
+    .link:hover {
+      border: 1px dotted $textDarkMain;
+    }
 
-        .dropdown-button:hover {
-            * {
-                background: $buttonHoverColor;
+    .dropdown-menu {
+      background: $backgroundGray;
+      box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
-                span {
-                    border: 1px dotted $textDarkMain;
-                }
-            }
+      .dropdown-menu-item {
+        background: #f0f0f0;
+        border: 1px solid #808080;
+        box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+
+        &:hover {
+          background: #fff4fd;
+          border: 1px solid #cca6c9;
+          box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
         }
-
-        .link:hover {
-            border: 1px dotted $textDarkMain;
-        }
-
-        .dropdown-menu {
-            background: $backgroundGray;
-            box-shadow: inset -2px -2px 0 0 #B4B4B4,
-            inset 2px 2px 0 0 #FFFFFF;
-
-            .dropdown-menu-item {
-                background: #F0F0F0;
-                border: 1px solid #808080;
-                box-shadow: inset -1px -1px 0 0 #B4B4B4,
-                inset 1px 1px 0 0 #FFFFFF;
-
-                &:hover {
-                    background: #FFF4FD;
-                    border: 1px solid #CCA6C9;
-                    box-shadow: inset -1px -1px 0 0 #E6DCE4,
-                    inset 1px 1px 0 0 #FFFFFF;
-                }
-            } // drop-down-menu item
-        } // dropdown-menu
-    } // nav-right-container
+      } // drop-down-menu item
+    } // dropdown-menu
+  } // nav-right-container
 } // navbar
 
 #search {
+  .search-form-container {
+    background: #e6e6e6;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+  }
 
-    .search-form-container {
-        background: #E6E6E6;
-        box-shadow: inset -2px -2px 0 0 #B4B4B4,
-        inset 2px 2px 0 0 #FFFFFF;
+  .search-header {
+    background: $gradient;
+    color: $textWhite;
+    font-size: 14px;
+    font-weight: 700;
+  }
 
-    }
+  form {
+    background: $backgroundGray;
 
-    .search-header {
-        background: $gradient;
-        color: $textWhite;
+    input {
+      background: #ffffff;
+      border: 1px solid #979797;
+      box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+
+      &::placeholder {
         font-size: 16px;
-        font-weight: 700;
-    }
+        color: $textDisable;
+      }
+    } // input
 
-    form {
-        background: $backgroundGray;
+    button[type="submit"] {
+      p::before {
+        content: "";
+        background: url(../../assets/icons/lupa.svg) no-repeat;
+        width: 1rem;
+        height: 1rem;
+        margin-right: 0.5rem;
+      }
+    } //button-submit
 
-        input {
-            background: #FFFFFF;
-            border: 1px solid #979797;
-            box-shadow: inset -2px -2px 0 0 #E6E6E6,
-            inset 2px 2px 0 0 #000000;
+    input:placeholder-shown ~ button[type="submit"] {
+      cursor: default;
+      background: $backgroundGray;
+      border: 1px solid #808080;
+      box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
 
-            &::placeholder {
-                font-size: 16px;
-                color: $textDisable;
-            }
-        } // input
+      &:hover {
+        span {
+          border-color: transparent;
+        }
+      }
 
-        
-        button[type="submit"] {
-            p::before {
-                content: "";
-                background: url(../../assets/icons/lupa.svg) no-repeat;
-                width: 1rem;
-                height: 1rem;
-                margin-right: 0.5rem;
-            }
-        } //button-submit
+      p {
+        color: $textDisable;
+        &::before {
+          background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
+        }
+      }
+    } //button-submit-placeholderActive
+  } // form
 
-        input:placeholder-shown ~ button[type="submit"] {
-            cursor: default;
-            background: $backgroundGray;
-            border: 1px solid #808080;
-            box-shadow: inset -1px -1px 0 0 #B4B4B4,
-            inset 1px 1px 0 0 #FFFFFF;
-
-            &:hover {
-                span {
-                    border-color: transparent;
-                }
-            }
-
-            p {
-                color: $textDisable;
-                &::before {
-                    background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
-                } 
-            }
-        } //button-submit-placeholderActive
-    } // form
-
-    .suggestions-container {
-        background: $backgroundGray;
-        box-shadow: inset -2px -2px 0 0 #B4B4B4,
-        inset 2px 2px 0 0 #FFFFFF;
-    }
+  
 } // search
+
+#search-results {
+  .suggested-gifs-container {
+    .gif-container {
+      box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+      outline: 2px solid $backgroundGray;
+      outline-offset: -4px;
+    }
+
+    .gif-header-container {
+      background: $gradient;
+      border-bottom: 2px solid $backgroundGray;
+
+      span {
+        color: $textWhite;
+        font-size: 14px;
+        font-weight: 700;
+      }
+    }
+  } // suggested-gifs-container
+}

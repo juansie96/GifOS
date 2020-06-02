@@ -9,8 +9,8 @@
 }
 
 .container {
-    margin: 0 4rem;
-    max-width: 1600px;
+    margin: auto;
+    max-width: 1350px;
 }
 
 
@@ -41,6 +41,11 @@
     padding: 0.5rem;
 }
 
+.tag {
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
 .gif-container {
     width: 100%;
     overflow: hidden;
@@ -50,11 +55,51 @@
         grid-column: span 2;
     }
 
-    .gif-element {
+    .gif-image {
         height: 350px;
         width: 100%;
     }
+
+    .tag {
+        position: absolute;
+        bottom: 1.2rem;
+        left: 0.7rem;
+    }
+
+    .gif-header-container { 
+        padding: 4px;
+        width: 100%;
+
+        span {
+            padding: 2px;
+        }
+    }
+
+    .button-close {
+        position: absolute;
+        right: 12px;
+        top: 11px;
+    }
 }
+
+.gif-bottom-container {
+
+  position: relative;
+
+  .gif-footer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: none;  
+    padding: 5px;
+  }
+
+  &:hover {
+    .gif-footer-container {
+      display: block;
+    }
+  } // gif-bottom-container hover
+} // gif-bottom-container
 
 // General Styles
 
@@ -203,18 +248,18 @@ section {
 
     .search-tags {
         margin-top: 1rem;
-
-        .tag {
-            padding: 0.5rem;
-            margin-right: 0.5rem;
-        }
-    }
-
-    .suggestions-gifs-container {
-        @extend %gridContainer;
     }
 } // search
 
+#search-results {
+    .suggested-gifs-container {
+        @extend %gridContainer;
+
+        .gif-container {
+            padding: 4px;
+        }
+    }
+}
 #trends {
     .trends-gifs-container {
         @extend %gridContainer;
