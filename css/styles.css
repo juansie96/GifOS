@@ -51,7 +51,7 @@ body {
   position: absolute;
 }
 
-#search-results .suggested-gifs-container, #trends .trends-gifs-container {
+#search-results .suggested-gifs-container, #trends .trending-gifs-container {
   margin-top: 1.3rem;
   display: -ms-grid;
   display: grid;
@@ -81,6 +81,10 @@ body {
 .container {
   margin: auto;
   max-width: 1350px;
+}
+
+.hidden {
+  display: none;
 }
 
 .btn-primary {
@@ -385,6 +389,7 @@ section {
 
 #search .suggestions-container {
   position: absolute;
+  z-index: 1;
   width: 100%;
   padding: 0.7rem 1rem;
 }

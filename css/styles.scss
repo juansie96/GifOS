@@ -13,6 +13,10 @@
     max-width: 1350px;
 }
 
+.hidden {
+    display: none;
+}
+
 
 // Components 
 
@@ -228,6 +232,7 @@ section {
 
     .suggestions-container {
         position: absolute;
+        z-index: 1;
         width: 100%;   
         padding: 0.7rem 1rem;
     }
@@ -261,7 +266,7 @@ section {
     }
 }
 #trends {
-    .trends-gifs-container {
+    .trending-gifs-container {
         @extend %gridContainer;
     }
 }
