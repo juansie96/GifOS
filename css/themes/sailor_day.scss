@@ -52,7 +52,6 @@ $textDisable: #b4b4b4;
   border: 1px solid #4c2f99;
   box-shadow: inset -2px -2px 0 0 #284f99, inset 2px 2px 0 0 #ffffff;
   color: #fff;
-  font-size: 14px;
 
   &:hover {
     outline: 1px dotted #110038;
@@ -62,7 +61,6 @@ $textDisable: #b4b4b4;
 }
 
 .header-text {
-  font-size: 14px;
   background: #fffafe;
   border: 1px solid #e6bbe2;
   box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #80687d;
@@ -84,8 +82,6 @@ $textDisable: #b4b4b4;
 
     span {
       color: $textWhite;
-      font-size: 14px;
-      font-weight: 700;
     }
   }
 } // gif-bottom-container
@@ -113,12 +109,8 @@ header {
 
 .navbar {
   .site-logo {
-    height: 4rem;
-    width: 6.5rem;
-    background: url(../../assets/imgs/gifOF_logo.png);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: auto;
+    background-image: url(../../assets/imgs/gifOF_logo.png);
+    
   }
 
   .nav-right-container {
@@ -164,8 +156,6 @@ header {
   .search-header {
     background: $gradient;
     color: $textWhite;
-    font-size: 14px;
-    font-weight: 700;
   }
 
   form {
@@ -177,7 +167,6 @@ header {
       box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
 
       &::placeholder {
-        font-size: 16px;
         color: $textDisable;
       }
     } // input
@@ -214,7 +203,7 @@ header {
   } // form
 
 
-  .suggestions-container {
+  .search-suggestions-container {
     background: #E6E6E6;
   box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
   }
@@ -222,7 +211,7 @@ header {
   
 } // search
 
-#search-results {
+#suggestions{
   .suggested-gifs-container {
     .gif-container {
       box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -236,8 +225,6 @@ header {
 
       span {
         color: $textWhite;
-        font-size: 14px;
-        font-weight: 700;
       }
     }
   } // suggested-gifs-container

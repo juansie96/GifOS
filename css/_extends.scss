@@ -1,3 +1,7 @@
+html {
+	font-size: 12px;
+}
+
 %fontStack {
     font-family: "Chakra Petch", Helvetica, Arial, sans-serif;
 	font-size: 1rem;
@@ -12,7 +16,7 @@
 
 %beforeUnderline {
 	content: '';
-	width: 9px;
+	width: 7px;
 	height: 1px;
 	background-color: #110038;
 	position: absolute;

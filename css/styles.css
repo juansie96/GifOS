@@ -37,21 +37,25 @@ select {
   font: inherit;
 }
 
+html {
+  font-size: 12px;
+}
+
 body {
   font-family: "Chakra Petch", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
 }
 
-.navbar .nav-right-container .link span:before, .navbar .dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
+.nav-right-container .link span:before, .dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
   content: '';
-  width: 9px;
+  width: 7px;
   height: 1px;
   background-color: #110038;
   position: absolute;
 }
 
-#search-results .suggested-gifs-container, #trends .trending-gifs-container {
+#suggestions .suggested-gifs-container, #trends .trending-gifs-container, #search-results .search-gifs-container {
   margin-top: 1.3rem;
   display: -ms-grid;
   display: grid;
@@ -79,8 +83,14 @@ body {
 }
 
 .container {
+  max-width: 1500px;
   margin: auto;
-  max-width: 1350px;
+}
+
+@media screen and (min-width: 1000px) {
+  .container {
+    padding: 0 5rem;
+  }
 }
 
 .hidden {
@@ -137,11 +147,13 @@ body {
 
 .header-text {
   padding: 0.5rem;
+  font-size: 12px;
 }
 
 .tag {
   padding: 0.5rem;
-  margin-right: 0.5rem;
+  margin: 0.2rem 0.25rem;
+  font-size: 12px;
 }
 
 .gif-container {
@@ -155,7 +167,7 @@ body {
 }
 
 .gif-container .gif-image {
-  height: 350px;
+  height: 300px;
   width: 100%;
 }
 
@@ -172,6 +184,8 @@ body {
 
 .gif-container .gif-header-container span {
   padding: 2px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .gif-container .button-close {
@@ -190,6 +204,11 @@ body {
   width: 100%;
   display: none;
   padding: 5px;
+}
+
+.gif-bottom-container .gif-footer-container span {
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .gif-bottom-container:hover .gif-footer-container {
@@ -236,7 +255,15 @@ section {
           justify-content: space-between;
 }
 
-.navbar .nav-right-container {
+.navbar .site-logo {
+  height: 4rem;
+  width: 6.25rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 75px;
+}
+
+.nav-right-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -252,27 +279,27 @@ section {
           flex-flow: row nowrap wrap;
 }
 
-.navbar .nav-right-container .nav-item {
+.nav-right-container .nav-item {
   margin-left: 1rem;
 }
 
-.navbar .nav-right-container .link {
+.nav-right-container .link {
   padding: 0.35rem 0.5rem 0.35rem 0;
 }
 
-.navbar .nav-right-container .link span {
+.nav-right-container .link span {
   position: relative;
 }
 
-.navbar .nav-right-container .link span:before {
-  top: 20px;
+.nav-right-container .link span:before {
+  top: 15px;
 }
 
-.navbar .dropdown-container {
+.dropdown-container {
   position: relative;
 }
 
-.navbar .dropdown-container .dropdown-button {
+.dropdown-container .dropdown-button {
   cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -289,34 +316,33 @@ section {
           flex-flow: row nowrap wrap;
 }
 
-.navbar .dropdown-container .dropdown-button div:last-child {
+.dropdown-container .dropdown-button div:last-child {
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
 }
 
-.navbar .dropdown-container .dropdown-button div:last-child span {
+.dropdown-container .dropdown-button div:last-child span {
   -ms-flex-item-align: stretch;
       -ms-grid-row-align: stretch;
       align-self: stretch;
 }
 
-.navbar .dropdown-container #dropdown-menu {
+.dropdown-container #dropdown-menu {
   position: absolute;
   width: 100%;
-  display: none;
   z-index: 1;
 }
 
-.navbar .dropdown-container #dropdown-menu .dropdown-menu-item {
+.dropdown-container #dropdown-menu .dropdown-menu-item {
   position: relative;
   display: block;
   padding: 0.5rem 1rem;
   margin: 10px;
 }
 
-.navbar .dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
-  top: 28px;
+.dropdown-container #dropdown-menu .dropdown-menu-item:hover:before {
+  top: 21px;
 }
 
 #search {
@@ -330,6 +356,8 @@ section {
 
 #search .search-header {
   padding: 5px;
+  font-size: 12px;
+  font-weight: 700;
 }
 
 #search form {
@@ -356,9 +384,10 @@ section {
   padding: 0.8rem 1rem;
   width: 100%;
   margin-right: 0.5rem;
+  font-size: 12px;
 }
 
-#search form button[type=submit] {
+#search form button[type="submit"] {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -367,11 +396,11 @@ section {
   max-width: fit-content;
 }
 
-#search form button[type=submit] span {
+#search form button[type="submit"] span {
   padding: 0.3rem 1rem;
 }
 
-#search form button[type=submit] span p {
+#search form button[type="submit"] span p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -387,7 +416,7 @@ section {
           flex-flow: row wrap wrap;
 }
 
-#search .suggestions-container {
+#search .search-suggestions-container {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -412,7 +441,7 @@ section {
   margin-top: 1rem;
 }
 
-#search-results .suggested-gifs-container .gif-container {
+#suggestions .suggested-gifs-container .gif-container {
   padding: 4px;
 }
 /*# sourceMappingURL=styles.css.map */

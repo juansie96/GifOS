@@ -19,7 +19,7 @@
     </header>
 
     <nav class="container navbar">
-        <a href="#">
+        <a href="/">
             <div class="site-logo"></div>
         </a>
 
@@ -38,7 +38,7 @@
                         </span>
                     </div>
                 </a>
-                <div class="dropdown-menu" id="dropdown-menu"ā>
+                <div class="dropdown-menu hidden" id="dropdown-menu">
                     <a href="#" class="dropdown-menu-item">Sailor Day</a>
                     <a href="#" class="dropdown-menu-item">Sailor Night</a>
                 </div>
@@ -54,12 +54,12 @@
     <main class="container">
 
         <section id="search">
-
             <div class="search-form-container">
                 <div class="search-header">Buscar</div>
-                <form>
-                    <input type="text" id="search-input" placeholder="Busca gifs, hashtags, temas, busca lo que quieras…">
-                    <button type="submit" id="submit-btn" class="btn-primary" disabled>
+                <form id="search-form">
+                    <input type="text" id="search-input"
+                        placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" autocomplete="off">
+                    <button type="submit" id="search-btn" class="btn-primary" disabled>
                         <span>
                             <p>Buscar</p>
                         </span>
@@ -67,16 +67,21 @@
                 </form>
             </div>
 
-            <div class="suggestions-container hidden">
+            <div class="search-suggestions-container hidden">
             </div>
 
-            <div class="search-tags" style="display:none">
-                <button class="tag">#Un ejemplo</button>
+            <div class="search-tags hidden">
             </div>
-
         </section>
 
-        <section id="search-results">
+        <section id="search-results" class="hidden">
+            <div class="header-text">
+                <span class="search-text"></span>
+            </div>
+            <div class="search-gifs-container"></div>
+        </section>
+
+        <section id="suggestions">
             <div class="header-text">
                 <span>Hoy te sugerimos:</span>
             </div>

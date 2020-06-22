@@ -5,97 +5,107 @@
 // Utilities
 
 .flexCenter {
-    @include flexCenter();
+  @include flexCenter();
 }
 
 .container {
-    margin: auto;
-    max-width: 1350px;
+  max-width: 1500px;
+  margin: auto;
+  @media screen and (min-width: 1000px) {
+    padding: 0 5rem;
+  }
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
-
-// Components 
+// Components
 
 .btn-primary {
+  display: inline-block;
+  padding: 2px;
+  span {
     display: inline-block;
-    padding: 2px;
-    span {
-        display: inline-block;
-        padding: 0.25rem 1.5rem;
-    }
+    padding: 0.25rem 1.5rem;
+  }
 }
 
 .btn-primary.wicon {
+  @include flexCenter();
+  padding: 2px;
+  span {
+    padding: 0rem 0.75rem;
     @include flexCenter();
-    padding: 2px;
-    span {
-        padding: 0rem 0.75rem;
-        @include flexCenter();
-        img {
-            min-width: 10px;
-        }
+    img {
+      min-width: 10px;
     }
+  }
 }
 
 .header-text {
-    padding: 0.5rem;
+  padding: 0.5rem;
+  font-size: 12px;
 }
 
 .tag {
-    padding: 0.5rem;
-    margin-right: 0.5rem;
+  padding: 0.5rem;
+  margin: 0.2rem 0.25rem;
+  font-size: 12px;
 }
 
 .gif-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &.double {
+    grid-column: span 2;
+  }
+
+  .gif-image {
+    height: 300px;
     width: 100%;
-    overflow: hidden;
-    position: relative;
+  }
 
-    &.double {
-        grid-column: span 2;
+  .tag {
+    position: absolute;
+    bottom: 1.2rem;
+    left: 0.7rem;
+  }
+
+  .gif-header-container {
+    padding: 4px;
+    width: 100%;
+
+    span {
+      padding: 2px;
+      font-size: 12px;
+      font-weight: 700;
     }
+  }
 
-    .gif-image {
-        height: 350px;
-        width: 100%;
-    }
-
-    .tag {
-        position: absolute;
-        bottom: 1.2rem;
-        left: 0.7rem;
-    }
-
-    .gif-header-container { 
-        padding: 4px;
-        width: 100%;
-
-        span {
-            padding: 2px;
-        }
-    }
-
-    .button-close {
-        position: absolute;
-        right: 12px;
-        top: 11px;
-    }
+  .button-close {
+    position: absolute;
+    right: 12px;
+    top: 11px;
+  }
 }
 
 .gif-bottom-container {
-
   position: relative;
 
   .gif-footer-container {
     position: absolute;
     bottom: 0;
     width: 100%;
-    display: none;  
+    display: none;
     padding: 5px;
+
+    span {
+      font-size: 12px;
+      font-weight: 700;
+    }
   }
 
   &:hover {
@@ -108,166 +118,183 @@
 // General Styles
 
 body {
-    @extend %fontStack;
+  @extend %fontStack;
 }
 
 h1 {
-    font-size: 12px;
-    padding: 4px 8px;
-    font-weight: normal;
+  font-size: 12px;
+  padding: 4px 8px;
+  font-weight: normal;
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 // Sections
 
 header {
-    margin-top: 1px;
-    box-shadow: 0 1px 0 0 #110038;
+  margin-top: 1px;
+  box-shadow: 0 1px 0 0 #110038;
 }
 
 section {
-    margin-top: 4rem;
+  margin-top: 4rem;
 }
 
 .navbar {
-    margin-top: 40px;
-    @include flexCenter();
-    justify-content: space-between;
-    
-    .nav-right-container {
-        @include flexCenter(row nowrap);
+  margin-top: 40px;
+  @include flexCenter();
+  justify-content: space-between;
 
-        .nav-item {
-            margin-left: 1rem;
-        }
-
-        .link {
-            padding: 0.35rem 0.5rem 0.35rem 0;
-            span {
-                position: relative;
-                &:before {
-                    @extend %beforeUnderline;
-                    top: 20px;
-                }
-            }
-        } // link
-
-    } // nav-right-container
-
-    .dropdown-container {
-        position: relative;
-
-        .dropdown-button {
-            cursor: pointer;
-            @include flexCenter(row nowrap);
-
-            div:last-child {
-                align-self: stretch;
-                span {
-                    align-self: stretch;
-                }
-            }
-        } // dropdown-button
-
-        #dropdown-menu {
-            position: absolute;
-            width: 100%;
-            display: none;
-            z-index: 1;
-
-            .dropdown-menu-item {
-                position: relative;
-                display: block;
-                padding: 0.5rem 1rem;
-                margin: 10px;
-
-                &:hover:before {
-                    @extend %beforeUnderline;
-                    top: 28px;
-                }
-            } // dropdown-menu-item
-        } // dropdown-menu
-    } // dropdown-container
+  .site-logo {
+    height: 4rem;
+    width: 6.25rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75px;
+}
 } // navbar
 
+
+
+.nav-right-container {
+  @include flexCenter(row nowrap);
+
+  .nav-item {
+    margin-left: 1rem;
+  }
+
+  .link {
+    padding: 0.35rem 0.5rem 0.35rem 0;
+    span {
+      position: relative;
+      &:before {
+        @extend %beforeUnderline;
+        top: 15px;
+      }
+    }
+  } // link
+} // nav-right-container
+
+.dropdown-container {
+  position: relative;
+
+  .dropdown-button {
+    cursor: pointer;
+    @include flexCenter(row nowrap);
+
+    div:last-child {
+      align-self: stretch;
+      span {
+        align-self: stretch;
+      }
+    }
+  } // dropdown-button
+
+  #dropdown-menu {
+    position: absolute;
+    width: 100%;
+    z-index: 1;
+
+    .dropdown-menu-item {
+      position: relative;
+      display: block;
+      padding: 0.5rem 1rem;
+      margin: 10px;
+
+      &:hover:before {
+        @extend %beforeUnderline;
+        top: 21px;
+      }
+    } // dropdown-menu-item
+  } // dropdown-menu
+} // dropdown-container
+
 #search {
-    margin-top: 2rem;
-    position: relative;
+  margin-top: 2rem;
+  position: relative;
 
-    .search-form-container {
-        padding: 2px;
+  .search-form-container {
+    padding: 2px;
+  }
+
+  .search-header {
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  form {
+    padding: 0.8rem 1rem;
+    @include flexCenter(row nowrap);
+    justify-content: space-between;
+
+    input {
+      padding: 0.8rem 1rem;
+      width: 100%;
+      margin-right: 0.5rem;
+      font-size: 12px;
     }
 
-    .search-header {
-        padding: 5px;
-    }
+    button[type="submit"] {
+      flex-grow: 1;
+      max-width: fit-content;
 
-    form {
-        padding: 0.8rem 1rem;
-        @include flexCenter(row nowrap);
-        justify-content: space-between;
+      span {
+        padding: 0.3rem 1rem;
 
-        input {
-            padding: 0.8rem 1rem;
-            width: 100%;
-            margin-right: 0.5rem;
+        p {
+          @include flexCenter(row wrap);
         }
+      }
+    } // submit button
+  } // form
 
-        button[type=submit] {
-            flex-grow: 1;
-            max-width: fit-content;
+  .search-suggestions-container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    padding: 0.7rem 1rem;
+  }
 
-            span {
-                padding: 0.3rem 1rem;
+  .suggestion {
+    width: 100%;
+    display: inline-block;
+    margin: 0.25rem 0;
+    text-align: left;
+    padding: 2px;
 
-                p {
-                    @include flexCenter(row wrap);
-                }
-            }
-        } // submit button
-    } // form
-
-    .suggestions-container {
-        position: absolute;
-        z-index: 1;
-        width: 100%;   
-        padding: 0.7rem 1rem;
+    span {
+      padding: 0.35rem 1rem;
+      display: inline-block;
+      width: 100%;
     }
+  } // suggestion
 
-    .suggestion {
-        width: 100%;
-        display: inline-block;
-        margin: 0.25rem 0;
-        text-align: left;
-        padding: 2px;
-
-        span {
-            padding: 0.35rem 1rem;
-            display: inline-block;
-            width: 100%;
-        }
-    } // suggestion
-
-    .search-tags {
-        margin-top: 1rem;
-    }
+  .search-tags {
+    margin-top: 1rem;
+  }
 } // search
 
-#search-results {
-    .suggested-gifs-container {
-        @extend %gridContainer;
+#suggestions {
+  .suggested-gifs-container {
+    @extend %gridContainer;
 
-        .gif-container {
-            padding: 4px;
-        }
+    .gif-container {
+      padding: 4px;
     }
+  }
 }
+
 #trends {
-    .trending-gifs-container {
-        @extend %gridContainer;
-    }
+  .trending-gifs-container {
+    @extend %gridContainer;
+  }
 }
 
+#search-results {
+  .search-gifs-container {
+    @extend %gridContainer;
+  }
+}
