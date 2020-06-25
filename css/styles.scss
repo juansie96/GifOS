@@ -17,7 +17,7 @@
 }
 
 .hidden {
-  display: none;
+  display: none !important;
 }
 
 // Components
@@ -88,7 +88,7 @@
   .button-close {
     position: absolute;
     right: 12px;
-    top: 11px;
+    top: 9px;
   }
 }
 
@@ -147,16 +147,22 @@ section {
   @include flexCenter();
   justify-content: space-between;
 
+  a {
+    display: flex;
+  }
+
+  .arrow {
+    margin-right: 10px;
+  }
+
   .site-logo {
     height: 4rem;
     width: 6.25rem;
     background-position: center;
     background-repeat: no-repeat;
     background-size: 75px;
-}
+  }
 } // navbar
-
-
 
 .nav-right-container {
   @include flexCenter(row nowrap);
@@ -165,7 +171,7 @@ section {
     margin-left: 1rem;
   }
 
-  .link {
+  .mis__guifos {
     padding: 0.35rem 0.5rem 0.35rem 0;
     span {
       position: relative;
@@ -298,3 +304,75 @@ section {
     @extend %gridContainer;
   }
 }
+
+#gifs__creation {
+  
+  .window {
+    position: relative;
+    margin: 0 auto;
+    width: 45%;
+    padding: 2px;
+    margin-bottom: 150px;
+  }
+
+  .window__icon {
+      position: absolute;
+      left: 20px;
+      top: 56px;
+      width: 30px;
+    }
+
+  .header__gradient {
+    padding: 3px;
+  }
+
+  .creation__instructions {
+    margin: auto;
+    margin-top: 30px;
+    width: 80%;
+    h5 {
+      font-size: 14px;
+    }
+    p {
+      margin-top: 15px;
+    }
+    span {
+      font-weight: 700;
+      font-style: italic;
+    }
+  }
+
+  .gifs__creation__steps {
+    counter-reset: counter 0;
+    li {
+      margin: 10px;
+      list-style-position: inside;
+    }
+    li:before {
+      counter-increment: counter;
+      content: counter(counter, decimal) ") ";
+      font-weight: bold;
+    }
+  }
+
+  .buttons__container {
+    display: flex;
+    justify-content: flex-end;
+    margin: 20px 30px 30px 0px;
+
+    .btn-primary {
+      padding: 0.25rem 1.8rem;
+      margin-right: 15px;
+      span {
+        border: none;
+      }
+      &:hover {
+        outline: 1px dotted #000;
+        outline-offset: -4px;
+        span {
+          border: none;
+        }
+      }
+    }
+  }
+} // gifs__creation

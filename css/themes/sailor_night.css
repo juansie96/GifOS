@@ -1,1 +1,288 @@
-/* No CSS *//*# sourceMappingURL=sailor_night.css.map */
+html {
+  font-size: 12px;
+}
+
+.navbar .nav-right-container .mis__guifos span:before, .navbar .nav-right-container .mis__guifos:active span:before {
+  content: '';
+  width: 7px;
+  height: 1px;
+  background-color: #110038;
+  position: absolute;
+}
+
+.btn-primary {
+  background: #ee3efe;
+  -webkit-box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+
+.btn-primary span {
+  border: 1px dotted transparent;
+}
+
+.btn-primary:hover {
+  background-color: #cf30dd;
+}
+
+.btn-primary:hover span {
+  border: 1px dotted #110038;
+}
+
+.suggestion {
+  background: #cccccc;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+}
+
+.suggestion span {
+  border: 1px dotted transparent;
+}
+
+.suggestion:hover span {
+  border: 1px dotted #110038;
+}
+
+.tag {
+  background: #2e32fb;
+  border: 1px solid #4c2f99;
+  -webkit-box-shadow: inset -2px -2px 0 0 #2124b3, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #2124b3, inset 2px 2px 0 0 #ffffff;
+  color: #fff;
+}
+
+.tag:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -5px;
+  background: #1f22c4;
+}
+
+.header-text {
+  background: #fffafe;
+  border: 1px solid #2e32fb;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
+          box-shadow: inset -2px -2px 0 0 #e6dce4, inset 2px 2px 0 0 #110038;
+}
+
+.gif-bottom-container:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -2px;
+}
+
+.gif-bottom-container:hover .tag {
+  outline: 1px dotted #110038;
+  outline-offset: -5px;
+}
+
+.gif-bottom-container .gif-footer-container {
+  background: -webkit-gradient(linear, right top, left top, from(#ee3efe), to(#2e32fb));
+  background: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.gif-bottom-container .gif-footer-container span {
+  color: #fff;
+}
+
+body {
+  background: #190547;
+}
+
+h1 {
+  color: #fff;
+}
+
+p,
+a {
+  color: #fff;
+}
+
+header {
+  background: -webkit-gradient(linear, right top, left top, from(#ee3efe), to(#2e32fb));
+  background: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+}
+
+.navbar .site-logo {
+  background-image: url(../../assets/imgs/gifOF_logo_dark.png);
+}
+
+.navbar .nav-right-container .dropdown-button:hover * {
+  background-color: #cf30dd;
+}
+
+.navbar .nav-right-container .dropdown-button:hover * span {
+  border: 1px dotted #110038;
+}
+
+.navbar .nav-right-container .mis__guifos {
+  border: 1px dotted transparent;
+}
+
+.navbar .nav-right-container .mis__guifos span:before {
+  background-color: #fff;
+}
+
+.navbar .nav-right-container .mis__guifos:hover {
+  border: 1px dotted #fff;
+}
+
+.navbar .nav-right-container .mis__guifos:active {
+  color: grey;
+  border: 1px dotted transparent;
+}
+
+.navbar .nav-right-container .mis__guifos:active span:before {
+  background-color: grey;
+}
+
+.navbar .nav-right-container .dropdown-menu {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+}
+
+.navbar .nav-right-container .dropdown-menu a {
+  color: #110038;
+}
+
+.navbar .nav-right-container .dropdown-menu .dropdown-menu-item {
+  background: #cccccc;
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+}
+
+.navbar .nav-right-container .dropdown-menu .dropdown-menu-item:hover {
+  background: #2e32fb;
+  -webkit-box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #e6dce4, inset 1px 1px 0 0 #ffffff;
+  color: #fff;
+}
+
+.navbar .nav-right-container .dropdown-menu .dropdown-menu-item:hover:before {
+  content: "";
+  width: 7px;
+  height: 1px;
+  background-color: #fff !important;
+  position: absolute;
+}
+
+#search .search-form-container {
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+}
+
+#search .search-header {
+  background: -webkit-gradient(linear, right top, left top, from(#ee3efe), to(#2e32fb));
+  background: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  color: #fff;
+}
+
+#search form {
+  background: #b4b4b4;
+}
+
+#search form input {
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+#search form input::-webkit-input-placeholder {
+  color: #b4b4b4;
+}
+
+#search form input:-ms-input-placeholder {
+  color: #b4b4b4;
+}
+
+#search form input::-ms-input-placeholder {
+  color: #b4b4b4;
+}
+
+#search form input::placeholder {
+  color: #b4b4b4;
+}
+
+#search form button[type="submit"] {
+  background: #ee3efe;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
+}
+
+#search form button[type="submit"] p::before {
+  content: "";
+  background: url(../../assets/icons/lupa_light.svg) no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 20px;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+}
+
+#search form button[type="submit"]:hover {
+  background: #cf30dd;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"] {
+  border: 1px solid #808080;
+  -webkit-box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
+  background: #c0c0c0;
+  outline: none;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"]:hover span {
+  border-color: transparent;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"] p {
+  color: #8f8f8f;
+}
+
+#search form input:placeholder-shown ~ button[type="submit"] p::before {
+  background-image: url(../../assets/icons/CombinedShape.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 20px;
+}
+
+#search .search-suggestions-container {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #ffffff;
+}
+
+#suggestions .suggested-gifs-container .gif-container {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+}
+
+#suggestions .suggested-gifs-container .gif-header-container {
+  background: -webkit-gradient(linear, right top, left top, from(#ee3efe), to(#2e32fb));
+  background: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  border-bottom: 2px solid #b4b4b4;
+}
+
+#suggestions .suggested-gifs-container .gif-header-container span {
+  color: #fff;
+}
+
+.trending-gifs-container .gif-container:hover {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+}
+
+.trending-gifs-container .gif-container:hover .gif-bottom-container img {
+  padding: 3px;
+}
+
+.trending-gifs-container .gif-container:hover .gif-bottom-container:hover {
+  outline-offset: -4px;
+}
+/*# sourceMappingURL=sailor_night.css.map */

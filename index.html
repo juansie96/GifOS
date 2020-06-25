@@ -7,7 +7,7 @@
 
     <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./css/themes/sailor_day.css" />
+    <link id="theme" rel="stylesheet" href="./css/themes/sailor_day.css" />
 
     <!-- FONTS IMPORT -->
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet" />
@@ -20,11 +20,12 @@
 
     <nav class="container navbar">
         <a href="/">
+            <img class="arrow hidden" src="./assets/icons/arrow.svg" alt="" >
             <div class="site-logo"></div>
         </a>
 
         <div class="nav-right-container">
-            <a href="#" class="nav-item btn-primary">
+            <a href="#" class="nav-item btn-primary crear__guifos">
                 <span>Crear Guifos</span>
             </a>
             <div class="nav-item dropdown-container">
@@ -34,16 +35,16 @@
                     </div>
                     <div class="btn-primary wicon">
                         <span>
-                            <img src="./assets/icons/dropdown.svg" alt="">
+                            <img class="dropdown-svg" src="./assets/icons/dropdown.svg" alt="">
                         </span>
                     </div>
                 </a>
                 <div class="dropdown-menu hidden" id="dropdown-menu">
-                    <a href="#" class="dropdown-menu-item">Sailor Day</a>
-                    <a href="#" class="dropdown-menu-item">Sailor Night</a>
+                    <a href="#" class="dropdown-menu-item sd">Sailor Day</a>
+                    <a href="#" class="dropdown-menu-item sn">Sailor Night</a>
                 </div>
             </div>
-            <a href="#" class="nav-item link">
+            <a href="#" class="nav-item mis__guifos">
                 <span>Mis Guifos</span>
             </a>
         </div>
@@ -96,10 +97,42 @@
 
             <div class="trending-gifs-container"></div>
         </section>
+
+    <section id="gifs__creation" class="hidden">
+        <div class="window" id="phase__1">
+            <div class="header__gradient">Crear guifos</div>
+            <div class="creation__instructions">
+                <img class="window__icon" src="./assets/imgs/window img.png" alt="">
+                <h5>Aquí podrás crear tus propios guifos</h5>
+                <p>Crear tu <span>guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos
+                    personalizados. Los
+                    pasos para crear tu guifo son:</p>
+                <ol class="gifs__creation__steps">
+                    <li>Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
+                    <li>Capturar tu momento guifo</li>
+                    <li>Revisar el momento</li>
+                    <li>Listo para subir y compartir!</li>
+                </ol>
+                <p>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</p>
+            </div>
+            <div class="buttons__container">
+                <button class="btn-primary light">
+                    <span>Cancelar</span>
+                </button>
+                <button class="btn-primary">
+                    <span>Comenzar</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="my__guifs" class="hidden">
+        <div class="header-text">
+            <span>Mis guifos:</span>
+        </div>
+    </section>
+
     </main>
-
-
-    <footer></footer>
 
     <script src="./js/main.js"></script>
 </body>

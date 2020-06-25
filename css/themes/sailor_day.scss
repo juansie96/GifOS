@@ -1,3 +1,5 @@
+@import "../extends";
+
 // Variables
 
 $backgroundPage: #fff4fd;
@@ -86,6 +88,10 @@ $textDisable: #b4b4b4;
   }
 } // gif-bottom-container
 
+.header__gradient {
+  background-color: $gradient;
+}
+
 // General Styles
 
 body {
@@ -110,7 +116,6 @@ header {
 .navbar {
   .site-logo {
     background-image: url(../../assets/imgs/gifOF_logo.png);
-    
   }
 
   .nav-right-container {
@@ -124,8 +129,24 @@ header {
       }
     }
 
-    .link:hover {
+    .mis__guifos {
+      border: 1px dotted transparent;
+    }
+
+    .mis__guifos:hover {
       border: 1px dotted $textDarkMain;
+    }
+
+    .mis__guifos:active {
+      color: grey;
+      border: 1px dotted transparent;
+
+      span {
+        &:before {
+          @extend %beforeUnderline;
+          background-color: grey;
+        }
+      }
     }
 
     .dropdown-menu {
@@ -175,6 +196,9 @@ header {
       p::before {
         content: "";
         background: url(../../assets/icons/lupa.svg) no-repeat;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 13px 20px;
         width: 1rem;
         height: 1rem;
         margin-right: 0.5rem;
@@ -196,22 +220,22 @@ header {
       p {
         color: $textDisable;
         &::before {
-          background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
+          background-image: url(../../assets/icons/lupa_inactive.svg);
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 13px 20px;
         }
       }
     } //button-submit-placeholderActive
   } // form
 
-
   .search-suggestions-container {
-    background: #E6E6E6;
-  box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+    background: #e6e6e6;
+    box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
   }
-
-  
 } // search
 
-#suggestions{
+#suggestions {
   .suggested-gifs-container {
     .gif-container {
       box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
@@ -228,4 +252,42 @@ header {
       }
     }
   } // suggested-gifs-container
+}
+
+.trending-gifs-container {
+  .gif-container:hover {
+    background: #b4b4b4;
+    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+  }
+
+  .gif-bottom-container {
+    img {
+      padding: 3px;
+    }
+    &:hover {
+      outline-offset: -4px;
+    }
+  }
+}
+
+
+#gifs__creation {
+
+  .window {
+    background: #E6E6E6;
+    box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  }
+
+  .header__gradient {
+    background: $gradient;
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .btn-primary.light {
+      background: #fff4fd;
+      border: 1px solid #110038;
+      box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+    }
+
 }

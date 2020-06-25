@@ -15,7 +15,14 @@ const elementsDOM = {
     suggestedGifsContainer: document.querySelector(".suggested-gifs-container"),
     trendingGifsContainer: document.querySelector(".trending-gifs-container"),
     searchGifsContainer: document.querySelector(".search-gifs-container"),
-    searchForm: document.querySelector("#search-form")
+    searchForm: document.querySelector("#search-form"),
+    searchSection: document.querySelector('#search'),
+    cssTheme: document.querySelector('link#theme'),
+    navRightContainer: document.querySelector('.nav-right-container'),
+    buttonCrearGuifos: document.querySelector('.crear__guifos'),
+    sectionGifsCreation: document.querySelector('#gifs__creation'),
+    sectionMyGuifs: document.querySelector('#my__guifs'),
+    arrowIcon: document.querySelector('.arrow')
 };
 
 const showElementsDOM = (...elements) => {
@@ -24,6 +31,17 @@ const showElementsDOM = (...elements) => {
 
 const hideElementsDOM = (...elements) => {
     elements.forEach(element => element.classList.add('hidden'));
+};
+
+elementsDOM.buttonCrearGuifos.onclick = () => {
+    hideElementsDOM(elementsDOM.navRightContainer,
+                    elementsDOM.searchSection,
+                    elementsDOM.suggestionsContainer,
+                    elementsDOM.trendsContainer);
+
+    showElementsDOM(elementsDOM.sectionGifsCreation,
+                    elementsDOM.sectionMyGuifs,
+                    elementsDOM.arrowIcon);
 };
 
 // Toggle del menu dropdown para cambiar de tema
@@ -42,6 +60,14 @@ document.onkeydown = (e) => {
     if (e.key === 'Escape') {
         hideElementsDOM(elementsDOM.searchSuggestionsContainer, elementsDOM.dropdownMenu);
     }
+};
+
+document.querySelector('.dropdown-menu-item.sd').onclick = () => {
+    elementsDOM.cssTheme.setAttribute("href", "./css/themes/sailor_day.css");
+};
+
+document.querySelector('.dropdown-menu-item.sn').onclick = () => {
+    elementsDOM.cssTheme.setAttribute("href", "./css/themes/sailor_night.css");
 };
 
 window.onload = async function () {
@@ -73,6 +99,7 @@ elementsDOM.searchForm.onsubmit = (e) => {
     handleSearchFunctionality(elementsDOM.searchInput.value);
 };
 
+
 async function fetchURL(url) {
     try {
         const response = await fetch(url);
@@ -94,8 +121,13 @@ async function getRelatedTags(ids) {
 
 function renderRelatedTags(tags) {
     tags.forEach(tag => {
-        if (tag !== '') elementsDOM.searchTags.insertAdjacentHTML('beforeend', `<button class="tag">${tag}</button>`);
+        // Si el título del tag esta vacío o contiene solo espacios, no se renderiza.
+        if (tag.replace(" ", "") !== '') {
+            elementsDOM.searchTags.insertAdjacentHTML('beforeend', `<button class="tag">${tag}</button>`);
+        }
     });
+
+    addTagsClickListeners();
 }
 
 async function handleSearchFunctionality(searchInput) {
@@ -138,6 +170,7 @@ async function fetchSearchResultGifs(searchInput, limit = 20) {
 async function fetchTrendingGifs(limit = 20) {
     const url = `http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=pg-13&offset=${Math.floor(Math.random()*300)}`;
     const trendingGifs = await fetchURL(url);
+    console.log(trendingGifs)
     return trendingGifs;
 }
 
@@ -193,6 +226,18 @@ function addSuggestionsClickListeners() {
         // Listeners (Al clickear una sugerencia, activamos una búsqueda en base al título de la misma)
         sugg.onclick = () => handleSearchFunctionality(sugg.innerText);
     });
+}
+
+function addTagsClickListeners() {
+    const tags = document.querySelectorAll('.search-tags .tag');
+    tags.forEach(tag => tag.onclick = () => {
+        processedTag = processTagTitleForQuery(tag.innerText);
+        handleSearchFunctionality(processedTag);
+    });
+}
+
+function processTagTitleForQuery(tagTitle) {
+    return tagTitle.split(" ").join("+");
 }
 
 function insertGifToDOM(gif, gifType, gifClass = '') {

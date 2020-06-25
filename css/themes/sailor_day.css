@@ -1,3 +1,15 @@
+html {
+  font-size: 12px;
+}
+
+.navbar .nav-right-container .mis__guifos:active span:before {
+  content: '';
+  width: 7px;
+  height: 1px;
+  background-color: #110038;
+  position: absolute;
+}
+
 .btn-primary {
   background: #f7c9f3;
   border: 1px solid #110038;
@@ -76,6 +88,10 @@
   color: #fff;
 }
 
+.header__gradient {
+  background-color: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+}
+
 body {
   background: #fff4fd;
 }
@@ -106,8 +122,21 @@ header {
   border: 1px dotted #110038;
 }
 
-.navbar .nav-right-container .link:hover {
+.navbar .nav-right-container .mis__guifos {
+  border: 1px dotted transparent;
+}
+
+.navbar .nav-right-container .mis__guifos:hover {
   border: 1px dotted #110038;
+}
+
+.navbar .nav-right-container .mis__guifos:active {
+  color: grey;
+  border: 1px dotted transparent;
+}
+
+.navbar .nav-right-container .mis__guifos:active span:before {
+  background-color: grey;
 }
 
 .navbar .nav-right-container .dropdown-menu {
@@ -172,6 +201,9 @@ header {
 #search form button[type="submit"] p::before {
   content: "";
   background: url(../../assets/icons/lupa.svg) no-repeat;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 20px;
   width: 1rem;
   height: 1rem;
   margin-right: 0.5rem;
@@ -194,13 +226,16 @@ header {
 }
 
 #search form input:placeholder-shown ~ button[type="submit"] p::before {
-  background: url(../../assets/icons/lupa_inactive.svg) no-repeat;
+  background-image: url(../../assets/icons/lupa_inactive.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 13px 20px;
 }
 
 #search .search-suggestions-container {
-  background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 
 #suggestions .suggested-gifs-container .gif-container {
@@ -218,5 +253,39 @@ header {
 
 #suggestions .suggested-gifs-container .gif-header-container span {
   color: #fff;
+}
+
+.trending-gifs-container .gif-container:hover {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+}
+
+.trending-gifs-container .gif-bottom-container img {
+  padding: 3px;
+}
+
+.trending-gifs-container .gif-bottom-container:hover {
+  outline-offset: -4px;
+}
+
+#gifs__creation .window {
+  background: #E6E6E6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
+}
+
+#gifs__creation .header__gradient {
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  color: #fff;
+  font-weight: 700;
+}
+
+#gifs__creation .btn-primary.light {
+  background: #fff4fd;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 /*# sourceMappingURL=sailor_day.css.map */
