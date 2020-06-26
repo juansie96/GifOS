@@ -1,3 +1,5 @@
+/* -------------------------------- CONSTANTS -------------------------------- */
+
 const API_KEY = "mjWGNSSOiOjn2D99jTbQjhx4QLl1KnYJ";
 
 const elementsDOM = {
@@ -21,27 +23,20 @@ const elementsDOM = {
     navRightContainer: document.querySelector('.nav-right-container'),
     buttonCrearGuifos: document.querySelector('.crear__guifos'),
     sectionGifsCreation: document.querySelector('#gifs__creation'),
-    sectionMyGuifs: document.querySelector('#my__guifs'),
+    sectionMyGifs: document.querySelector('#my__gifs'),
     arrowIcon: document.querySelector('.arrow')
 };
 
-const showElementsDOM = (...elements) => {
-    elements.forEach(element => element.classList.remove('hidden'));
-};
 
-const hideElementsDOM = (...elements) => {
-    elements.forEach(element => element.classList.add('hidden'));
-};
+/* -------------------------------- MAIN EVENT LISTENERS -------------------------------- */
 
-elementsDOM.buttonCrearGuifos.onclick = () => {
-    hideElementsDOM(elementsDOM.navRightContainer,
-                    elementsDOM.searchSection,
-                    elementsDOM.suggestionsContainer,
-                    elementsDOM.trendsContainer);
-
-    showElementsDOM(elementsDOM.sectionGifsCreation,
-                    elementsDOM.sectionMyGuifs,
-                    elementsDOM.arrowIcon);
+// Starting function
+window.onload = async function () {
+    const trendingGifs = await fetchTrendingGifs();
+    renderGridGifs(trendingGifs, 'trending');
+    const trendingSearches = await fetchTrendingSearches();
+    const suggestedGifs = await fetchSuggestedGifs(trendingSearches);
+    renderSuggestedGifs(suggestedGifs);
 };
 
 // Toggle del menu dropdown para cambiar de tema
@@ -62,44 +57,68 @@ document.onkeydown = (e) => {
     }
 };
 
+// Change CSS themes listeners
 document.querySelector('.dropdown-menu-item.sd').onclick = () => {
     elementsDOM.cssTheme.setAttribute("href", "./css/themes/sailor_day.css");
 };
-
 document.querySelector('.dropdown-menu-item.sn').onclick = () => {
     elementsDOM.cssTheme.setAttribute("href", "./css/themes/sailor_night.css");
-};
-
-window.onload = async function () {
-    const trendingGifs = await fetchTrendingGifs();
-    renderGridGifs(trendingGifs, 'trending');
-    const trendingSearches = await fetchTrendingSearches();
-    const suggestedGifs = await fetchSuggestedGifs(trendingSearches);
-    renderSuggestedGifs(suggestedGifs);
 };
 
 elementsDOM.searchInput.oninput = async (e) => {
     const userInput = e.target.value;
 
-    // Si el search input esta vacio oculta el contenedor de sugerencias
     if (userInput === '') {
         elementsDOM.searchButton.disabled = true;
         hideElementsDOM(elementsDOM.searchSuggestionsContainer);
     } else {
         elementsDOM.searchButton.disabled = false;
         showElementsDOM(elementsDOM.searchSuggestionsContainer);
-        const suggestions = await getSearchSuggestions(userInput);
+        const suggestions = await fetchSearchSuggestions(userInput);
         renderSearchSuggestions(suggestions);
         addSuggestionsClickListeners();
     }
 };
 
-elementsDOM.searchForm.onsubmit = (e) => { 
+elementsDOM.searchForm.onsubmit = (e) => {
     e.preventDefault();
     handleSearchFunctionality(elementsDOM.searchInput.value);
 };
 
 
+
+/* -------------------------------- HANDLERS FUNCTIONS -------------------------------- */
+
+
+async function handleSearchFunctionality(searchInput) {
+    const searchResultGifs = await fetchSearchResultGifs(searchInput);
+
+    clearPreviousResults();
+    elementsDOM.searchInput.value = '';
+
+    hideElementsDOM(elementsDOM.searchSuggestionsContainer,
+        elementsDOM.suggestionsContainer,
+        elementsDOM.trendsContainer);
+
+    showElementsDOM(elementsDOM.searchTags,
+        elementsDOM.searchResultsContainer,
+        elementsDOM.searchTags);
+
+    const searchGifsID = searchResultGifs.map(gif => gif.id);
+    const relatedTags = await fetchRelatedTags(searchGifsID);
+    renderRelatedTags(relatedTags);
+    addTagsClickListeners();
+
+    updateSearchText(searchInput);
+    renderGridGifs(searchResultGifs, 'search');
+}
+
+
+/* -------------------------------- FETCH API CALLS -------------------------------- */
+
+
+
+// General Fetch Utility Function
 async function fetchURL(url) {
     try {
         const response = await fetch(url);
@@ -111,54 +130,12 @@ async function fetchURL(url) {
     }
 }
 
-async function getRelatedTags(ids) {
+async function fetchRelatedTags(ids) {
     const queryIDS = ids.join(',');
     const url = `http://api.giphy.com/v1/gifs?ids=${queryIDS}&api_key=${API_KEY}`;
     const relatedGifsMetadata = await fetchURL(url);
     const relatedTags = relatedGifsMetadata.map(relatedGif => relatedGif.title);
     return relatedTags;
-}
-
-function renderRelatedTags(tags) {
-    tags.forEach(tag => {
-        // Si el título del tag esta vacío o contiene solo espacios, no se renderiza.
-        if (tag.replace(" ", "") !== '') {
-            elementsDOM.searchTags.insertAdjacentHTML('beforeend', `<button class="tag">${tag}</button>`);
-        }
-    });
-
-    addTagsClickListeners();
-}
-
-async function handleSearchFunctionality(searchInput) {
-    const searchResultGifs = await fetchSearchResultGifs(searchInput);
-
-    clearPreviousResults();
-    elementsDOM.searchInput.value = '';
-
-    hideElementsDOM(elementsDOM.searchSuggestionsContainer,
-                    elementsDOM.suggestionsContainer,
-                    elementsDOM.trendsContainer);
-
-    showElementsDOM(elementsDOM.searchTags, 
-                    elementsDOM.searchResultsContainer,
-                    elementsDOM.searchTags);
-
-    const searchGifsID = searchResultGifs.map(gif => gif.id);
-    const relatedTags = await getRelatedTags(searchGifsID);
-    renderRelatedTags(relatedTags);
-
-    updateSearchText(searchInput);
-    renderGridGifs(searchResultGifs, 'search');
-}
-
-function clearPreviousResults() {
-    elementsDOM.searchTags.innerHTML = '';
-    elementsDOM.searchGifsContainer.innerHTML = '';
-}
-
-function updateSearchText(input) {
-    elementsDOM.searchText.innerHTML = `Resultados de búsqueda: ${input}`;
 }
 
 async function fetchSearchResultGifs(searchInput, limit = 20) {
@@ -170,17 +147,9 @@ async function fetchSearchResultGifs(searchInput, limit = 20) {
 async function fetchTrendingGifs(limit = 20) {
     const url = `http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=pg-13&offset=${Math.floor(Math.random()*300)}`;
     const trendingGifs = await fetchURL(url);
-    console.log(trendingGifs)
     return trendingGifs;
 }
 
-function renderGridGifs(gifs, type) {
-    gifs.forEach(gif => {
-        // Si la proporcion del gif es ancha entonces le asignamos la clase 'double' para que ocupe 2 casillas en el GRID
-        let gifClass = gif.images["480w_still"].width / gif.images["480w_still"].height >= 1.5 ? 'double' : '';
-        insertGifToDOM(gif, type, gifClass);
-    });
-}
 
 // Esta función va a traer las búsquedas populares sugeridas (Strings) para luego traer gifs sugeridos
 async function fetchTrendingSearches() {
@@ -199,11 +168,17 @@ async function fetchSuggestedGifs(searches) {
     return suggestedGifs;
 }
 
-async function getSearchSuggestions(input) {
+async function fetchSearchSuggestions(input) {
     const url = `http://api.giphy.com/v1/gifs/search/tags?q=${input}&api_key=${API_KEY}`;
     const searchSuggestions = await fetchURL(url);
     return searchSuggestions;
 }
+
+
+
+/* -------------------------------- DOM RENDERING FUNCTIONS -------------------------------- */
+
+
 
 function renderSearchSuggestions(suggestions) {
     // Limpiamos las sugerencias anteriores
@@ -217,27 +192,34 @@ function renderSearchSuggestions(suggestions) {
     });
 }
 
+function renderGridGifs(gifs, type) {
+    gifs.forEach(gif => {
+        // Si la proporcion del gif es ancha entonces le asignamos la clase 'double' para que ocupe 2 casillas en el GRID
+        let gifClass = gif.images["480w_still"].width / gif.images["480w_still"].height >= 1.5 ? 'double' : '';
+        insertGifToDOM(gif, type, gifClass);
+    });
+}
+
+function renderRelatedTags(tags) {
+    tags.forEach(tag => {
+        // Si el título del tag esta vacío o contiene solo espacios, no se renderiza.
+        if (tag.replace(" ", "") !== '') {
+            elementsDOM.searchTags.insertAdjacentHTML('beforeend', `<button class="tag">${tag}</button>`);
+        }
+    });
+}
+
 async function renderSuggestedGifs(suggestedGifs) {
     suggestedGifs.forEach(gif => insertGifToDOM(gif, 'suggested'));
 }
 
-function addSuggestionsClickListeners() {
-    document.querySelectorAll('.suggestion').forEach(sugg => {
-        // Listeners (Al clickear una sugerencia, activamos una búsqueda en base al título de la misma)
-        sugg.onclick = () => handleSearchFunctionality(sugg.innerText);
-    });
+function clearPreviousResults() {
+    elementsDOM.searchTags.innerHTML = '';
+    elementsDOM.searchGifsContainer.innerHTML = '';
 }
 
-function addTagsClickListeners() {
-    const tags = document.querySelectorAll('.search-tags .tag');
-    tags.forEach(tag => tag.onclick = () => {
-        processedTag = processTagTitleForQuery(tag.innerText);
-        handleSearchFunctionality(processedTag);
-    });
-}
-
-function processTagTitleForQuery(tagTitle) {
-    return tagTitle.split(" ").join("+");
+function updateSearchText(input) {
+    elementsDOM.searchText.innerHTML = `Resultados de búsqueda: ${input}`;
 }
 
 function insertGifToDOM(gif, gifType, gifClass = '') {
@@ -270,8 +252,8 @@ function insertGifToDOM(gif, gifType, gifClass = '') {
         const hashedTitle = gif.title.split(" ").map(el => el = "#" + el).join(" ");
 
         const gifFooter = `<div class="gif-footer-container">
-                        <span>${hashedTitle}</span>
-                    </div>`;
+                                <span>${hashedTitle}</span>
+                            </div>`;
 
         const trendingGifHTML = `<div class="gif-container ${gifType} ${gifClass}">
                                     <div class="gif-bottom-container">
@@ -286,3 +268,114 @@ function insertGifToDOM(gif, gifType, gifClass = '') {
     }
 }
 
+
+/* -------------------------------- UTILITIES FUNCTIONS -------------------------------- */
+
+
+function showElementsDOM(...elements) {
+    elements.forEach(element => element.classList.remove('hidden'));
+}
+
+function hideElementsDOM(...elements) {
+    elements.forEach(element => element.classList.add('hidden'));
+}
+
+
+function addSuggestionsClickListeners() {
+    document.querySelectorAll('.suggestion').forEach(sugg => {
+        // Listeners (Al clickear una sugerencia, activamos una búsqueda en base al título de la misma)
+        sugg.onclick = () => handleSearchFunctionality(sugg.innerText);
+    });
+}
+
+function addTagsClickListeners() {
+    const tags = document.querySelectorAll('.search-tags .tag');
+    tags.forEach(tag => tag.onclick = () => {
+        processedTag = processTagTitleForQuery(tag.innerText);
+        handleSearchFunctionality(processedTag);
+    });
+}
+
+function processTagTitleForQuery(tagTitle) {
+    return tagTitle.split(" ").join("+");
+}
+
+
+/* -------------------------------- GIFS CREATION SECTION -------------------------------- */
+
+
+elementsDOM.buttonCrearGuifos.onclick = () => {
+    createGifsSection();
+};
+
+function createGifsSection() {
+
+    const _webcamVideoContainer = document.querySelector('#webcam__video__container video');
+    const _startPhaseTwoButton = document.querySelector('.start__button');
+    const _phaseOneContainer = document.querySelector('#phase__1');
+    const _phaseTwoContainer = document.querySelector('#phase__2');
+    const _recordButtonsContainer = document.querySelector('.record__buttons__container');
+    const _recordingTime = document.querySelector('.recording__time');
+
+    displayCreateGifsSection();
+    setPhaseOneEventListeners();
+
+    function displayCreateGifsSection() {
+        hideElementsDOM(elementsDOM.navRightContainer,
+            elementsDOM.searchSection,
+            elementsDOM.suggestionsContainer,
+            elementsDOM.trendsContainer);
+
+        showElementsDOM(elementsDOM.sectionGifsCreation,
+            elementsDOM.sectionMyGifs,
+            elementsDOM.arrowIcon);
+    }
+
+    function setPhaseOneEventListeners() {
+        _startPhaseTwoButton.onclick = () => handlePhaseTwo();
+    }
+
+    function handlePhaseTwo() {
+        displayPhaseTwo();
+        getWebcamVideoStream();
+        setPhaseTwoEventListeners();
+    }
+
+    function displayPhaseTwo() {
+        hideElementsDOM(_phaseOneContainer);
+        showElementsDOM(_phaseTwoContainer);
+    }
+
+    async function getWebcamVideoStream() {
+        try {
+            const stream = await navigator.mediaDevices.getUserMedia({
+                video: {
+                    height: {
+                        max: 450
+                    }
+                },
+                audio: false
+            });
+            _webcamVideoContainer.srcObject = stream;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    function setPhaseTwoEventListeners() {
+        _recordButtonsContainer.onclick = () => {
+            displayRecordingButtons();
+            startRecording();
+        };
+    }
+
+    function displayRecordingButtons() {
+        _recordButtonsContainer.classList.add('recording');
+        document.querySelector('.capture__text').innerHTML = 'Listo';
+        showElementsDOM(_recordingTime);
+    }
+
+    function startRecording() {
+        console.log(_webcamVideoContainer.srcObject);
+    }
+}

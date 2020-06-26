@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,7 @@
     <!-- FONTS IMPORT -->
     <link href="https://fonts.googleapis.com/css?family=Chakra+Petch:400,700&display=swap" rel="stylesheet" />
 </head>
+
 <body>
 
     <header>
@@ -20,7 +22,7 @@
 
     <nav class="container navbar">
         <a href="/">
-            <img class="arrow hidden" src="./assets/icons/arrow.svg" alt="" >
+            <img class="arrow hidden" src="./assets/icons/arrow.svg" alt="">
             <div class="site-logo"></div>
         </a>
 
@@ -98,42 +100,73 @@
             <div class="trending-gifs-container"></div>
         </section>
 
-    <section id="gifs__creation" class="hidden">
-        <div class="window" id="phase__1">
-            <div class="header__gradient">Crear guifos</div>
-            <div class="creation__instructions">
-                <img class="window__icon" src="./assets/imgs/window img.png" alt="">
-                <h5>Aquí podrás crear tus propios guifos</h5>
-                <p>Crear tu <span>guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén guifos
-                    personalizados. Los
-                    pasos para crear tu guifo son:</p>
-                <ol class="gifs__creation__steps">
-                    <li>Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
-                    <li>Capturar tu momento guifo</li>
-                    <li>Revisar el momento</li>
-                    <li>Listo para subir y compartir!</li>
-                </ol>
-                <p>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</p>
-            </div>
-            <div class="buttons__container">
-                <button class="btn-primary light">
-                    <span>Cancelar</span>
-                </button>
-                <button class="btn-primary">
-                    <span>Comenzar</span>
-                </button>
-            </div>
-        </div>
-    </section>
+        <section id="gifs__creation" class="hidden">
 
-    <section id="my__guifs" class="hidden">
-        <div class="header-text">
-            <span>Mis guifos:</span>
-        </div>
-    </section>
+            <div id="phase__1">
+                <div class="window" id="phase__1">
+                    <div class="window__header__gradient"><span>Crear guifos</span></div>
+                    <div class="creation__instructions">
+                        <img class="window__icon" src="./assets/imgs/window img.png" alt="">
+                        <h5>Aquí podrás crear tus propios guifos</h5>
+                        <p>Crear tu <span>guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén
+                            guifos
+                            personalizados. Los
+                            pasos para crear tu guifo son:</p>
+                        <ol class="gifs__creation__steps">
+                            <li>Dar permisos de acceso a la cámara (sólo por el tiempo de uso)</li>
+                            <li>Capturar tu momento guifo</li>
+                            <li>Revisar el momento</li>
+                            <li>Listo para subir y compartir!</li>
+                        </ol>
+                        <p>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</p>
+                    </div>
+                    <div class="buttons__container">
+                        <button class="btn-primary light">
+                            <span>Cancelar</span>
+                        </button>
+                        <button class="btn-primary start__button">
+                            <span>Comenzar</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="phase__2" class="hidden">
+                <div class="window-large" id="phase__2">
+                    <div class="window__header__gradient">
+                        <span>Vista Previa</span>
+                        <img class="button-close" src="./assets/icons/button close.svg" alt="">
+                    </div>
+
+                    <div id="webcam__video__container">
+                        <video autoplay loop></video>
+                    </div>
+                    <div class="bottom__container">
+                        <div class="recording__time hidden">00:00:00:00</div>
+                        <div class="record__buttons__container">
+                            <button class="btn-primary">
+                                <img class="recording__svg" src="./assets//icons/recording.svg" alt="">
+                                <img class="camera__svg" src="./assets/icons/camera.svg" alt="">
+                            </button>
+                            <button class="btn-primary">
+                                <span class="capture__text">Capturar</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="my__gifs" class="hidden">
+            <div class="header-text">
+                <span>Mis guifos:</span>
+            </div>
+        </section>
 
     </main>
 
     <script src="./js/main.js"></script>
 </body>
+
 </html>

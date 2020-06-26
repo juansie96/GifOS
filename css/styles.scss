@@ -25,6 +25,11 @@
 .btn-primary {
   display: inline-block;
   padding: 2px;
+
+  &:hover {
+    outline: 1px dotted #110038;
+    outline-offset: -3px;
+  }
   span {
     display: inline-block;
     padding: 0.25rem 1.5rem;
@@ -40,6 +45,22 @@
     img {
       min-width: 10px;
     }
+  }
+}
+
+.window__header__gradient {
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  * {
+    padding: 4px;
+  }
+
+  span {
+    font-size: 12px;
+    font-weight: 700;
   }
 }
 
@@ -73,23 +94,6 @@
     bottom: 1.2rem;
     left: 0.7rem;
   }
-
-  .gif-header-container {
-    padding: 4px;
-    width: 100%;
-
-    span {
-      padding: 2px;
-      font-size: 12px;
-      font-weight: 700;
-    }
-  }
-
-  .button-close {
-    position: absolute;
-    right: 12px;
-    top: 9px;
-  }
 }
 
 .gif-bottom-container {
@@ -114,6 +118,10 @@
     }
   } // gif-bottom-container hover
 } // gif-bottom-container
+
+.header__gradient {
+  padding: 3px;
+}
 
 // General Styles
 
@@ -306,73 +314,128 @@ section {
 }
 
 #gifs__creation {
-  
-  .window {
-    position: relative;
-    margin: 0 auto;
-    width: 45%;
-    padding: 2px;
-    margin-bottom: 150px;
-  }
+  #phase__1 {
+    .window {
+      position: relative;
+      margin: 0 auto;
+      width: 45%;
+      padding: 2px;
+      margin-bottom: 150px;
+    }
 
-  .window__icon {
+    .window__icon {
       position: absolute;
       left: 20px;
       top: 56px;
       width: 30px;
     }
 
-  .header__gradient {
-    padding: 3px;
-  }
-
-  .creation__instructions {
-    margin: auto;
-    margin-top: 30px;
-    width: 80%;
-    h5 {
-      font-size: 14px;
-    }
-    p {
-      margin-top: 15px;
-    }
-    span {
-      font-weight: 700;
-      font-style: italic;
-    }
-  }
-
-  .gifs__creation__steps {
-    counter-reset: counter 0;
-    li {
-      margin: 10px;
-      list-style-position: inside;
-    }
-    li:before {
-      counter-increment: counter;
-      content: counter(counter, decimal) ") ";
-      font-weight: bold;
-    }
-  }
-
-  .buttons__container {
-    display: flex;
-    justify-content: flex-end;
-    margin: 20px 30px 30px 0px;
-
-    .btn-primary {
-      padding: 0.25rem 1.8rem;
-      margin-right: 15px;
-      span {
-        border: none;
+    .creation__instructions {
+      margin: auto;
+      margin-top: 30px;
+      width: 80%;
+      h5 {
+        font-size: 14px;
       }
-      &:hover {
-        outline: 1px dotted #000;
-        outline-offset: -4px;
+      p {
+        margin-top: 15px;
+      }
+      span {
+        font-weight: 700;
+        font-style: italic;
+      }
+    }
+
+    .gifs__creation__steps {
+      counter-reset: counter 0;
+      li {
+        margin: 10px;
+        list-style-position: inside;
+      }
+      li:before {
+        counter-increment: counter;
+        content: counter(counter, decimal) ") ";
+        font-weight: bold;
+      }
+    }
+
+    .buttons__container {
+      display: flex;
+      justify-content: flex-end;
+      margin: 20px 30px 30px 0px;
+
+      .btn-primary {
+        padding: 0.25rem 1.8rem;
+        margin-right: 15px;
         span {
           border: none;
         }
+        &:hover {
+          outline: 1px dotted #000;
+          outline-offset: -4px;
+          span {
+            border: none;
+          }
+        }
       }
     }
-  }
+  } // phase 1
+
+  #phase__2 {
+    .window-large {
+      margin: auto;
+      max-width: 700px;
+      padding: 2px;
+    }
+
+    #webcam__video__container {
+      max-height: 500px;
+      margin: 15px;
+    }
+
+    video {
+      width: 100%;
+      height: auto;
+    }
+
+    .bottom__container {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+      margin: 20px;
+
+      .recording__time {
+        padding: 5px 15px;
+        margin-right: auto;
+      }
+
+      .record__buttons__container {
+        display: flex;
+
+        .recording__svg {
+          display: none;
+        }
+
+        &:hover {
+          *.btn-primary {
+            outline: 1px dotted #110038;
+            outline-offset: -3px;
+          }
+        }
+      } // capture-- buttons
+
+      .record__buttons__container.recording {
+        .camera__svg {
+          display: none;
+        }
+        .recording__svg {
+          display: block;
+        }
+      }
+
+      .btn-primary img {
+        margin: 0 5px;
+      }
+    }
+  } // phase 2f
 } // gifs__creation

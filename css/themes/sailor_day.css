@@ -17,18 +17,6 @@ html {
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
 }
 
-.btn-primary span {
-  border: 1px dotted transparent;
-}
-
-.btn-primary:hover {
-  background-color: #dbacd7;
-}
-
-.btn-primary:hover span {
-  border: 1px dotted #110038;
-}
-
 .suggestion {
   background: #f0f0f0;
   border: 1px solid #808080;
@@ -88,8 +76,11 @@ html {
   color: #fff;
 }
 
-.header__gradient {
-  background-color: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+.window__header__gradient {
+  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
+  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
+  color: #fff;
+  font-weight: 700;
 }
 
 body {
@@ -270,16 +261,9 @@ header {
 }
 
 #gifs__creation .window {
-  background: #E6E6E6;
-  -webkit-box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-          box-shadow: inset -2px -2px 0 0 #B4B4B4, inset 2px 2px 0 0 #FFFFFF;
-}
-
-#gifs__creation .header__gradient {
-  background: -webkit-gradient(linear, right top, left top, from(#f7c9f3), to(#4180f6));
-  background: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
-  color: #fff;
-  font-weight: 700;
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 }
 
 #gifs__creation .btn-primary.light {
@@ -287,5 +271,33 @@ header {
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
+}
+
+#gifs__creation #phase__2 .window-large {
+  background: #e6e6e6;
+  -webkit-box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+          box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+}
+
+#gifs__creation #phase__2 .window-large #webcam__video__container {
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+#gifs__creation #phase__2 .window-large .recording__time {
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+#gifs__creation #phase__2 .window-large .recording .btn-primary {
+  color: #fff;
+  background: #ff6161;
+  border: 1px solid #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+          box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
 }
 /*# sourceMappingURL=sailor_day.css.map */

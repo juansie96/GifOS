@@ -102,6 +102,11 @@ body {
   padding: 2px;
 }
 
+.btn-primary:hover {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+}
+
 .btn-primary span {
   display: inline-block;
   padding: 0.25rem 1.5rem;
@@ -145,6 +150,26 @@ body {
   min-width: 10px;
 }
 
+.window__header__gradient {
+  width: 100%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.window__header__gradient * {
+  padding: 4px;
+}
+
+.window__header__gradient span {
+  font-size: 12px;
+  font-weight: 700;
+}
+
 .header-text {
   padding: 0.5rem;
   font-size: 12px;
@@ -177,23 +202,6 @@ body {
   left: 0.7rem;
 }
 
-.gif-container .gif-header-container {
-  padding: 4px;
-  width: 100%;
-}
-
-.gif-container .gif-header-container span {
-  padding: 2px;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.gif-container .button-close {
-  position: absolute;
-  right: 12px;
-  top: 9px;
-}
-
 .gif-bottom-container {
   position: relative;
 }
@@ -213,6 +221,10 @@ body {
 
 .gif-bottom-container:hover .gif-footer-container {
   display: block;
+}
+
+.header__gradient {
+  padding: 3px;
 }
 
 h1 {
@@ -455,7 +467,7 @@ section {
   padding: 4px;
 }
 
-#gifs__creation .window {
+#gifs__creation #phase__1 .window {
   position: relative;
   margin: 0 auto;
   width: 45%;
@@ -463,52 +475,48 @@ section {
   margin-bottom: 150px;
 }
 
-#gifs__creation .window__icon {
+#gifs__creation #phase__1 .window__icon {
   position: absolute;
   left: 20px;
   top: 56px;
   width: 30px;
 }
 
-#gifs__creation .header__gradient {
-  padding: 3px;
-}
-
-#gifs__creation .creation__instructions {
+#gifs__creation #phase__1 .creation__instructions {
   margin: auto;
   margin-top: 30px;
   width: 80%;
 }
 
-#gifs__creation .creation__instructions h5 {
+#gifs__creation #phase__1 .creation__instructions h5 {
   font-size: 14px;
 }
 
-#gifs__creation .creation__instructions p {
+#gifs__creation #phase__1 .creation__instructions p {
   margin-top: 15px;
 }
 
-#gifs__creation .creation__instructions span {
+#gifs__creation #phase__1 .creation__instructions span {
   font-weight: 700;
   font-style: italic;
 }
 
-#gifs__creation .gifs__creation__steps {
+#gifs__creation #phase__1 .gifs__creation__steps {
   counter-reset: counter 0;
 }
 
-#gifs__creation .gifs__creation__steps li {
+#gifs__creation #phase__1 .gifs__creation__steps li {
   margin: 10px;
   list-style-position: inside;
 }
 
-#gifs__creation .gifs__creation__steps li:before {
+#gifs__creation #phase__1 .gifs__creation__steps li:before {
   counter-increment: counter;
   content: counter(counter, decimal) ") ";
   font-weight: bold;
 }
 
-#gifs__creation .buttons__container {
+#gifs__creation #phase__1 .buttons__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -518,21 +526,82 @@ section {
   margin: 20px 30px 30px 0px;
 }
 
-#gifs__creation .buttons__container .btn-primary {
+#gifs__creation #phase__1 .buttons__container .btn-primary {
   padding: 0.25rem 1.8rem;
   margin-right: 15px;
 }
 
-#gifs__creation .buttons__container .btn-primary span {
+#gifs__creation #phase__1 .buttons__container .btn-primary span {
   border: none;
 }
 
-#gifs__creation .buttons__container .btn-primary:hover {
+#gifs__creation #phase__1 .buttons__container .btn-primary:hover {
   outline: 1px dotted #000;
   outline-offset: -4px;
 }
 
-#gifs__creation .buttons__container .btn-primary:hover span {
+#gifs__creation #phase__1 .buttons__container .btn-primary:hover span {
   border: none;
+}
+
+#gifs__creation #phase__2 .window-large {
+  margin: auto;
+  max-width: 700px;
+  padding: 2px;
+}
+
+#gifs__creation #phase__2 #webcam__video__container {
+  max-height: 500px;
+  margin: 15px;
+}
+
+#gifs__creation #phase__2 video {
+  width: 100%;
+  height: auto;
+}
+
+#gifs__creation #phase__2 .bottom__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 20px;
+}
+
+#gifs__creation #phase__2 .bottom__container .recording__time {
+  padding: 5px 15px;
+  margin-right: auto;
+}
+
+#gifs__creation #phase__2 .bottom__container .record__buttons__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#gifs__creation #phase__2 .bottom__container .record__buttons__container .recording__svg {
+  display: none;
+}
+
+#gifs__creation #phase__2 .bottom__container .record__buttons__container:hover *.btn-primary {
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
+}
+
+#gifs__creation #phase__2 .bottom__container .record__buttons__container.recording .camera__svg {
+  display: none;
+}
+
+#gifs__creation #phase__2 .bottom__container .record__buttons__container.recording .recording__svg {
+  display: block;
+}
+
+#gifs__creation #phase__2 .bottom__container .btn-primary img {
+  margin: 0 5px;
 }
 /*# sourceMappingURL=styles.css.map */
