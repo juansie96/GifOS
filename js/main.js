@@ -655,24 +655,24 @@ function createGifsSection() {
             body: formData,
             json: true
         };
-        const data = await fetchURL(`httpss://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, params);
+        const data = await fetchURL(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, params);
         return await data;
     }
 
     async function saveGifToLocalStorage(gifID) {
-        const response = await fetchURL(`httpss://api.giphy.com/v1/gifs/${gifID}?api_key=${API_KEY}`);
+        const response = await fetchURL(`https://api.giphy.com/v1/gifs/${gifID}?api_key=${API_KEY}`);
         const stringifiedData = JSON.stringify(response.data);
         localStorage.setItem(`Gif: ${gifID}`, stringifiedData);
     }
 
     async function copyGifLink() {
-        const gifURL = `httpss://giphy.com/gifs/${newGifID}`;
+        const gifURL = `https://giphy.com/gifs/${newGifID}`;
         await navigator.clipboard.writeText(gifURL);
         console.log('Link copiado con exito');
     }
 
     async function downloadGif() {
-        const downloadUrl = `httpss://media.giphy.com/media/${newGifID}/giphy.gif`;
+        const downloadUrl = `https://media.giphy.com/media/${newGifID}/giphy.gif`;
         const fetchedGif = fetch(downloadUrl);
         const blobGif = (await fetchedGif).blob();
         const urlGif = URL.createObjectURL(await blobGif);
