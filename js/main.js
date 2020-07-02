@@ -190,21 +190,21 @@ async function fetchURL(url, params) {
 
 async function fetchRelatedTags(ids) {
     const queryIDS = ids.join(',');
-    const url = `http://api.giphy.com/v1/gifs?ids=${queryIDS}&api_key=${API_KEY}`;
+    const url = `https://api.giphy.com/v1/gifs?ids=${queryIDS}&api_key=${API_KEY}`;
     const relatedGifsMetadata = await fetchURL(url);
     const relatedTags = relatedGifsMetadata.data.map(relatedGif => relatedGif.title);
     return relatedTags;
 }
 
 async function fetchSearchResultGifs(searchInput, limit = 20) {
-    const url = `http://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${API_KEY}&limit=${limit}&rating=pg-13&offset=${offset}`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${searchInput}&api_key=${API_KEY}&limit=${limit}&rating=pg-13&offset=${offset}`;
     let searchResultGifs = await fetchURL(url);
     searchResultGifs = searchResultGifs.data;
     return searchResultGifs;
 }
 
 async function fetchTrendingGifs(limit = 20) {
-    const url = `http://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=pg-13&offset=${Math.floor(Math.random()*300)}`;
+    const url = `https://api.giphy.com/v1/gifs/trending?api_key=${API_KEY}&limit=${limit}&rating=pg-13&offset=${Math.floor(Math.random()*300)}`;
     let trendingGifs = await fetchURL(url);
     trendingGifs = trendingGifs.data
     return trendingGifs;
@@ -213,7 +213,7 @@ async function fetchTrendingGifs(limit = 20) {
 
 // Esta función va a traer las búsquedas populares sugeridas (Strings) para luego traer gifs sugeridos
 async function fetchTrendingSearches() {
-    const url = `http://api.giphy.com/v1/trending/searches?api_key=${API_KEY}`;
+    const url = `https://api.giphy.com/v1/trending/searches?api_key=${API_KEY}`;
     let trendingSearches = await fetchURL(url);
     trendingSearches = trendingSearches.data;
     return trendingSearches;
@@ -224,14 +224,14 @@ async function fetchSuggestedGifs(searches) {
     // Selecciona una búsqueda al azar de el array de búsquedas populares
     const searchTag = searches[Math.floor(Math.random() * searches.length)];
     // Hacemos una query a la API para que traiga los gifs con la busqueda popular seleccionada
-    const url = `http://api.giphy.com/v1/gifs/search?q=${searchTag}&api_key=${API_KEY}&limit=${'4'}&rating=pg-13`;
+    const url = `https://api.giphy.com/v1/gifs/search?q=${searchTag}&api_key=${API_KEY}&limit=${'4'}&rating=pg-13`;
     let suggestedGifs = await fetchURL(url);
     suggestedGifs = suggestedGifs.data;
     return suggestedGifs;
 }
 
 async function fetchSearchSuggestions(input) {
-    const url = `http://api.giphy.com/v1/gifs/search/tags?q=${input}&api_key=${API_KEY}`;
+    const url = `https://api.giphy.com/v1/gifs/search/tags?q=${input}&api_key=${API_KEY}`;
     let searchSuggestions = await fetchURL(url);
     searchSuggestions = searchSuggestions.data;
     return searchSuggestions;
@@ -655,24 +655,24 @@ function createGifsSection() {
             body: formData,
             json: true
         };
-        const data = await fetchURL(`https://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, params);
+        const data = await fetchURL(`httpss://upload.giphy.com/v1/gifs?api_key=${API_KEY}`, params);
         return await data;
     }
 
     async function saveGifToLocalStorage(gifID) {
-        const response = await fetchURL(`https://api.giphy.com/v1/gifs/${gifID}?api_key=${API_KEY}`);
+        const response = await fetchURL(`httpss://api.giphy.com/v1/gifs/${gifID}?api_key=${API_KEY}`);
         const stringifiedData = JSON.stringify(response.data);
         localStorage.setItem(`Gif: ${gifID}`, stringifiedData);
     }
 
     async function copyGifLink() {
-        const gifURL = `https://giphy.com/gifs/${newGifID}`;
+        const gifURL = `httpss://giphy.com/gifs/${newGifID}`;
         await navigator.clipboard.writeText(gifURL);
         console.log('Link copiado con exito');
     }
 
     async function downloadGif() {
-        const downloadUrl = `https://media.giphy.com/media/${newGifID}/giphy.gif`;
+        const downloadUrl = `httpss://media.giphy.com/media/${newGifID}/giphy.gif`;
         const fetchedGif = fetch(downloadUrl);
         const blobGif = (await fetchedGif).blob();
         const urlGif = URL.createObjectURL(await blobGif);
