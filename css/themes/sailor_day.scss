@@ -6,30 +6,22 @@ $backgroundPage: #fff4fd;
 $backgroundGray: #e6e6e6;
 $gradient: linear-gradient(270deg, #f7c9f3 0%, #4180f6 100%);
 
-$buttonColor: #f7c9f3;
+$primaryColor: #f7c9f3;
 $buttonHoverColor: #dbacd7;
 
 $textWhite: #fff;
 $textDarkMain: #110038;
 $textDisable: #b4b4b4;
 
-// Utility
-
 // Components
 
 .btn-primary {
-  background: $buttonColor;
+  background: $primaryColor;
   border: 1px solid $textDarkMain;
   box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
-  // span {
-  //   border: 1px dotted transparent;
-  // }
-  // &:hover {
-  //   background-color: $buttonHoverColor;
-  //   span {
-  //     border: 1px dotted $textDarkMain;
-  //   }
-  // }
+  &:hover {
+    background: $buttonHoverColor;
+  }
 } // btn-primary
 
 .suggestion {
@@ -122,12 +114,10 @@ header {
 
   .nav-right-container {
     .dropdown-button:hover {
-      * {
+      *.btn-primary {
         background: $buttonHoverColor;
-
-        span {
-          border: 1px dotted $textDarkMain;
-        }
+        outline: 1px dotted #110038;
+        outline-offset: -3px;
       }
     }
 
@@ -195,7 +185,7 @@ header {
     } // input
 
     button[type="submit"] {
-      p::before {
+      span:before {
         content: "";
         background: url(../../assets/icons/lupa.svg) no-repeat;
         background-repeat: no-repeat;
@@ -208,7 +198,6 @@ header {
     } //button-submit
 
     input:placeholder-shown ~ button[type="submit"] {
-      cursor: default;
       background: $backgroundGray;
       border: 1px solid #808080;
       box-shadow: inset -1px -1px 0 0 #b4b4b4, inset 1px 1px 0 0 #ffffff;
@@ -219,9 +208,9 @@ header {
         }
       }
 
-      p {
+      span {
         color: $textDisable;
-        &::before {
+        &:before {
           background-image: url(../../assets/icons/lupa_inactive.svg);
           background-repeat: no-repeat;
           background-position: center;
@@ -284,31 +273,81 @@ header {
     box-shadow: inset -1px -1px 0 0 #997d97, inset 1px 1px 0 0 #ffffff;
   }
 
-  #phase__2 {
+  .camera__svg {
+    &.white {
+      display: none;
+    }
+  }
+
+  #phase__2,
+  #phase__3 {
     .window-large {
       background: #e6e6e6;
       box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
 
-      #webcam__video__container {
+      &__inner-container {
         background: #ffffff;
         border: 1px solid #979797;
         box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-      }
-
-      .recording__time {
-        background: #ffffff;
-        border: 1px solid #979797;
-        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
-      }
-
-      .recording {
-        .btn-primary {
-          color: #fff;
-          background: #ff6161;
-          border: 1px solid #110038;
-          box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
-        }
       }
     }
   } // phase 2
+
+  #phase__2 {
+    .recording__time {
+      background: #ffffff;
+      border: 1px solid #979797;
+      box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+    }
+
+    .recording {
+      .btn-primary {
+        color: #fff;
+        background: #ff6161;
+        border: 1px solid #110038;
+        box-shadow: inset -1px -1px 0 0 #993a3a, inset 1px 1px 0 0 #ffffff;
+      }
+    }
+
+    .stop-recording {
+      span {
+        color: white;
+      }
+    }
+
+    .start-recording {
+      &:hover {
+        *.btn-primary {
+          background: $buttonHoverColor;
+        }
+      }
+    }
+  }
+
+  #phase__3 {
+    .loading-bar {
+      border-top: 2px solid #000;
+      border-left: 2px solid #000;
+      &__item {
+        border-right: 2px solid #b4b4b4;
+        background: #999;
+        &__active {
+          background: $primaryColor;
+        }
+      }
+    }
+  } // phase__3
+
+  #phase__4 {
+    .window-small {
+      background: #e6e6e6;
+      box-shadow: inset -2px -2px 0 0 #b4b4b4, inset 2px 2px 0 0 #ffffff;
+
+      .gif-preview {
+        background: #ffffff;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+      }
+    }
+  }
 } // gifs creation section

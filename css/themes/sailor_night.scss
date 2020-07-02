@@ -20,15 +20,8 @@ $textDisable: #b4b4b4;
 .btn-primary {
   background: $buttonColor;
   box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
-
-  span {
-    border: 1px dotted transparent;
-  }
   &:hover {
-    background-color: $buttonHoverColor;
-    span {
-      border: 1px dotted $textDarkMain;
-    }
+    background: $buttonHoverColor;
   }
 } // btn-primary
 
@@ -47,6 +40,15 @@ $textDisable: #b4b4b4;
     }
   }
 } // search-result-item
+
+.window__header__gradient {
+  background: $gradient;
+  border-bottom: 2px solid #b4b4b4;
+
+  span {
+    color: $textWhite;
+  }
+}
 
 .tag {
   background: #2e32fb;
@@ -115,15 +117,12 @@ header {
 
   .nav-right-container {
     .dropdown-button:hover {
-      * {
-        background-color: $buttonHoverColor;
-
-        span {
-          border: 1px dotted $textDarkMain;
-        }
+      *.btn-primary {
+        background: $buttonHoverColor;
+        outline: 1px dotted #110038;
+        outline-offset: -3px;
       }
     }
-
     .mis__guifos {
       border: 1px dotted transparent;
 
@@ -207,7 +206,7 @@ header {
     } // input
 
     button[type="submit"] {
-      p::before {
+      span:before {
         content: "";
         background: url(../../assets/icons/lupa_light.svg) no-repeat;
         background-repeat: no-repeat;
@@ -217,7 +216,7 @@ header {
         height: 1rem;
         margin-right: 0.5rem;
       }
-
+      color: #fff;
       background: #ee3efe;
       border: 1px solid #110038;
       box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
@@ -239,9 +238,9 @@ header {
         }
       }
 
-      p {
+      span {
         color: #8f8f8f;
-        &::before {
+        &:before {
           background-image: url(../../assets/icons/CombinedShape.svg);
           background-repeat: no-repeat;
           background-position: center;
@@ -263,15 +262,6 @@ header {
       background: #b4b4b4;
       box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
     }
-
-    .gif-header-container {
-      background: $gradient;
-      border-bottom: 2px solid #b4b4b4;
-
-      span {
-        color: $textWhite;
-      }
-    }
   } // suggested-gifs-container
 }
 
@@ -290,3 +280,90 @@ header {
     }
   }
 }
+
+#gifs__creation {
+  .btn-primary {
+    border: none;
+    span {
+      color: $textWhite;
+    }
+
+    &.dark-button {
+      background: #110038;
+      box-shadow: inset -1px -1px 0 0 #5c5c5c, inset 1px 1px 0 0 #fff4fd;
+      &:hover {
+        outline-color: #fff !important;
+      }
+    }
+  }
+  .window {
+    background: #b4b4b4;
+    box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+    p {
+      color: $textDarkMain;
+    }
+  }
+
+  .camera__svg {
+    &.dark {
+      display: none;
+    }
+  }
+
+  .recording__time {
+    background: #ffffff;
+    border: 1px solid #979797;
+    box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+  }
+
+  .start-recording {
+    &:hover {
+      *.btn-primary {
+        background: $buttonHoverColor;
+      }
+    }
+  }
+
+  #phase__2,
+  #phase__3 {
+    .window-large {
+      background: #b4b4b4;
+      box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+      p {
+        color: $textDarkMain;
+      }
+    }
+  } // phase 2
+
+  #phase__3 {
+    .loading-bar {
+      border-top: 2px solid #000;
+      border-left: 2px solid #000;
+      &__item {
+        border-right: 2px solid #b4b4b4;
+        background: #999;
+        &__active {
+          background: #ee3efe;
+        }
+      }
+    }
+  } // phase__3
+
+  #phase__4 {
+    .window-small {
+      background: #b4b4b4;
+      box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+
+      .gif-preview {
+        background: #ffffff;
+        border: 1px solid #979797;
+        box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+      }
+    }
+
+    p {
+      color: $textDarkMain;
+    }
+  }
+
+} // gifs-creation

@@ -251,16 +251,18 @@ section {
       font-size: 12px;
     }
 
+    button:disabled {
+      cursor: not-allowed;
+      outline: none;
+    }
+
     button[type="submit"] {
       flex-grow: 1;
       max-width: fit-content;
 
       span {
         padding: 0.3rem 1rem;
-
-        p {
-          @include flexCenter(row wrap);
-        }
+        @include flexCenter(row wrap);
       }
     } // submit button
   } // form
@@ -307,6 +309,12 @@ section {
   }
 }
 
+#my__gifs {
+  .mygifs-container {
+    @extend %gridContainer;
+  }
+}
+
 #search-results {
   .search-gifs-container {
     @extend %gridContainer;
@@ -314,12 +322,29 @@ section {
 }
 
 #gifs__creation {
+  .window-large,
+  .window-small,
+  .window {
+    width: 700px;
+    margin: auto;
+    padding: 2px;
+
+    .window__buttons .flex {
+      display: flex;
+      justify-content: flex-end;
+      flex: 1;
+      margin: 0 15px 10px 15px;
+    }
+  }
+
+  .camera__svg, .recording__svg {
+    width: 15px;
+  }
+
   #phase__1 {
     .window {
+      max-width: 600px;
       position: relative;
-      margin: 0 auto;
-      width: 45%;
-      padding: 2px;
       margin-bottom: 150px;
     }
 
@@ -365,14 +390,14 @@ section {
       margin: 20px 30px 30px 0px;
 
       .btn-primary {
-        padding: 0.25rem 1.8rem;
+        padding: 0.25rem 1.6rem;
         margin-right: 15px;
         span {
           border: none;
         }
         &:hover {
           outline: 1px dotted #000;
-          outline-offset: -4px;
+          outline-offset: -3.5px;
           span {
             border: none;
           }
@@ -383,38 +408,30 @@ section {
 
   #phase__2 {
     .window-large {
-      margin: auto;
-      max-width: 700px;
-      padding: 2px;
+      width: 700px;
     }
 
-    #webcam__video__container {
+    #preview-container {
       max-height: 500px;
       margin: 15px;
     }
 
-    video {
+    .video-container,
+    .gif-preview {
       width: 100%;
       height: auto;
     }
 
-    .bottom__container {
-      display: flex;
-      justify-content: flex-end;
-      flex: 1;
-      margin: 20px;
-
-      .recording__time {
-        padding: 5px 15px;
-        margin-right: auto;
+    .window__buttons {
+      .stop-recording {
+        * {
+          background: #ff6161;
+        }
       }
 
-      .record__buttons__container {
+      .start-recording,
+      .stop-recording {
         display: flex;
-
-        .recording__svg {
-          display: none;
-        }
 
         &:hover {
           *.btn-primary {
@@ -422,20 +439,106 @@ section {
             outline-offset: -3px;
           }
         }
-      } // capture-- buttons
-
-      .record__buttons__container.recording {
-        .camera__svg {
-          display: none;
-        }
-        .recording__svg {
-          display: block;
-        }
+      }
+      .recording__time {
+        padding: 5px 15px;
+        margin-right: auto;
       }
 
       .btn-primary img {
         margin: 0 5px;
       }
+
+      .post-recording-buttons .btn-primary {
+        margin-left: 10px;
+      }
     }
-  } // phase 2f
+  } // phase 2
+
+  #phase__3 {
+    .window-large {
+      &__inner-container {
+        display: flex;
+        flex-direction: column;
+        padding: 120px 0 120px 0;
+        margin: 15px;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+      }
+
+      .bold-text {
+        margin-top: 8px;
+        font-size: 14px;
+        font-weight: 800;
+      }
+
+      .sub-text {
+        font-size: 11px;
+        margin-top: 10px;
+        color: #8a8a8a;
+      }
+
+      .strike-through {
+        text-decoration: line-through;
+      }
+
+      #img-globe {
+        width: 35px;
+        height: auto;
+      }
+
+      .loading-bar {
+        display: flex;
+        width: 350px;
+        height: 20px;
+        margin-top: 40px;
+        &__item {
+          flex: 1;
+        }
+      }
+    }
+  }
 } // gifs__creation
+
+#phase__4 {
+  .window-small {
+    max-width: 700px;
+
+    &__inner-container {
+      margin: 25px;
+      display: flex;
+      justify-content: space-around;
+
+      .gif-preview {
+        height: 200px;
+        width: 350px;
+      }
+      .guifo-options {
+        width: 200px;
+        margin-top: 30px;
+        display: flex;
+        flex-direction: column;
+
+        .dark-text {
+          font-weight: 800;
+          margin-bottom: 7px;
+        }
+
+        .btn-primary {
+          margin: 7px 0;
+        }
+      }
+    }
+
+    .window__buttons {
+      margin: 35px;
+
+      .btn-primary {
+        span {
+          padding: 0.25rem 3.5rem;
+        }
+      }
+    }
+  }
+}

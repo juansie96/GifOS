@@ -42,8 +42,8 @@
                     </div>
                 </a>
                 <div class="dropdown-menu hidden" id="dropdown-menu">
-                    <a href="#" class="dropdown-menu-item sd">Sailor Day</a>
-                    <a href="#" class="dropdown-menu-item sn">Sailor Night</a>
+                    <a href="#" class="dropdown-menu-item sailor-day">Sailor Day</a>
+                    <a href="#" class="dropdown-menu-item sailor-night">Sailor Night</a>
                 </div>
             </div>
             <a href="#" class="nav-item mis__guifos">
@@ -63,9 +63,7 @@
                     <input type="text" id="search-input"
                         placeholder="Busca gifs, hashtags, temas, busca lo que quieras…" autocomplete="off">
                     <button type="submit" id="search-btn" class="btn-primary" disabled>
-                        <span>
-                            <p>Buscar</p>
-                        </span>
+                        <span>Buscar</span>
                     </button>
                 </form>
             </div>
@@ -101,12 +99,11 @@
         </section>
 
         <section id="gifs__creation" class="hidden">
-
             <div id="phase__1">
-                <div class="window" id="phase__1">
+                <div class="window">
                     <div class="window__header__gradient"><span>Crear guifos</span></div>
                     <div class="creation__instructions">
-                        <img class="window__icon" src="./assets/imgs/window img.png" alt="">
+                        <img class="window__icon" src="./assets/imgs/window_img.png" alt="">
                         <h5>Aquí podrás crear tus propios guifos</h5>
                         <p>Crear tu <span>guifo</span> es muy fácil, graba cualquier imagen con tu cámara y obtén
                             guifos
@@ -121,7 +118,7 @@
                         <p>¿Quieres comenzar a crear tu <span>guifo</span> ahora?</p>
                     </div>
                     <div class="buttons__container">
-                        <button class="btn-primary light">
+                        <button class="btn-primary light dark-button cancel-gif-creation">
                             <span>Cancelar</span>
                         </button>
                         <button class="btn-primary start__button">
@@ -132,24 +129,120 @@
             </div>
 
             <div id="phase__2" class="hidden">
-                <div class="window-large" id="phase__2">
+                <div class="window-large">
                     <div class="window__header__gradient">
-                        <span>Vista Previa</span>
-                        <img class="button-close" src="./assets/icons/button close.svg" alt="">
+                        <span class="window__header__text">Un Chequeo Antes de Empezar</span>
+                        <img class="button-close" src="./assets/icons/button_close.svg" alt="">
                     </div>
+                    <div id="preview-container">
+                        <video class="video-container"></video>
+                        <img class="gif-preview hidden" src="/" alt="">
+                    </div>
+                    <div class="window__buttons">
+                        <div id="pre-recording" class="flex">
+                            <div class="start-recording">
+                                <button class="btn-primary">
+                                    <img class="camera__svg dark" src="./assets/icons/camera.svg" alt="">
+                                    <img class="camera__svg white" src="./assets/icons/camera_light.svg" alt="">
+                                </button>
+                                <button class="btn-primary">
+                                    <span class="capture__text">Capturar</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="recording" class="hidden flex">
+                            <div class="recording__time"></div>
+                            <div class="stop-recording">
+                                <button class="btn-primary">
+                                    <img class="recording__svg" src="./assets//icons/recording.svg" alt="">
+                                </button>
+                                <button class="btn-primary">
+                                    <span class="capture__text">Listo</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div id="post-recording" class="hidden flex">
+                            <div class="post-recording-buttons">
+                                <button class="btn-primary light dark-button" id="repeat-recording">
+                                    <span class="">Repetir Captura</span>
+                                </button>
+                                <button class="btn-primary" id="upload-guifo">
+                                    <span class="capture__text">Subir Guifo</span>
+                                </button>
+                            </div>
+                        </div>
 
-                    <div id="webcam__video__container">
-                        <video autoplay loop></video>
                     </div>
-                    <div class="bottom__container">
-                        <div class="recording__time hidden">00:00:00:00</div>
-                        <div class="record__buttons__container">
-                            <button class="btn-primary">
-                                <img class="recording__svg" src="./assets//icons/recording.svg" alt="">
-                                <img class="camera__svg" src="./assets/icons/camera.svg" alt="">
-                            </button>
-                            <button class="btn-primary">
-                                <span class="capture__text">Capturar</span>
+                </div>
+            </div>
+
+            <div id="phase__3" class="hidden">
+                <div class="window-large">
+                    <div class="window__header__gradient">
+                        <span>Subiendo Guifo</span>
+                        <img class="button-close" src="./assets/icons/button_close.svg" alt="">
+                    </div>
+                    <div class="window-large__inner-container">
+                        <img id="img-globe" src="./assets/imgs/globe_img.png " alt="">
+                        <p class="bold-text">Estamos subiendo tu guifo...</p>
+                        <div class="loading-bar">
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                            <div class="loading-bar__item"></div>
+                        </div>
+                        <p class="sub-text">Tiempo restante: <span class="strike-through">38 años</span> algunos minutos</p>
+                    </div>
+                    <div class="window__buttons">
+                        <div class="flex">
+                                <button class="btn-primary light">
+                                    <span class="capture__text">Cancelar</span>
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="phase__4" class="hidden">
+                <div class="window-small">
+                    <div class="window__header__gradient">
+                        <span>Guifo Subido con Éxito</span>
+                        <img class="button-close" src="./assets/icons/button_close.svg" alt="">
+                    </div>
+                    <div class="window-small__inner-container">
+                       <div class="gif-preview">
+                           <img class="gif-details-preview" alt="" src="/">
+                       </div>
+                       <div class="guifo-options">
+                           <p class="dark-text">Guifo creado con éxito</p>
+                           <button class="btn-primary light dark-button" id="copy-gif-link">
+                               <span>Copiar Enlace Guifo</span>
+                           </button>
+                           <button class="btn-primary light dark-button" id="download-gif">
+                               <span>Descargar Guifo</span>
+                           </button>
+                       </div>
+                    </div>
+                    <div class="window__buttons">
+                        <div class="flex">
+                            <button class="btn-primary finish-gif-creation">
+                                <span class="capture__text">Listo</span>
                             </button>
                         </div>
                     </div>
@@ -162,10 +255,12 @@
             <div class="header-text">
                 <span>Mis guifos:</span>
             </div>
+            <div class="mygifs-container"></div>
         </section>
 
     </main>
 
+    <script src="https://www.WebRTC-Experiment.com/RecordRTC.js"></script>
     <script src="./js/main.js"></script>
 </body>
 

@@ -16,16 +16,8 @@ html {
           box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
 
-.btn-primary span {
-  border: 1px dotted transparent;
-}
-
 .btn-primary:hover {
-  background-color: #cf30dd;
-}
-
-.btn-primary:hover span {
-  border: 1px dotted #110038;
+  background: #cf30dd;
 }
 
 .suggestion {
@@ -41,6 +33,16 @@ html {
 
 .suggestion:hover span {
   border: 1px dotted #110038;
+}
+
+.window__header__gradient {
+  background: -webkit-gradient(linear, right top, left top, from(#ee3efe), to(#2e32fb));
+  background: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
+  border-bottom: 2px solid #b4b4b4;
+}
+
+.window__header__gradient span {
+  color: #fff;
 }
 
 .tag {
@@ -105,12 +107,10 @@ header {
   background-image: url(../../assets/imgs/gifOF_logo_dark.png);
 }
 
-.navbar .nav-right-container .dropdown-button:hover * {
-  background-color: #cf30dd;
-}
-
-.navbar .nav-right-container .dropdown-button:hover * span {
-  border: 1px dotted #110038;
+.navbar .nav-right-container .dropdown-button:hover *.btn-primary {
+  background: #cf30dd;
+  outline: 1px dotted #110038;
+  outline-offset: -3px;
 }
 
 .navbar .nav-right-container .mis__guifos {
@@ -206,13 +206,14 @@ header {
 }
 
 #search form button[type="submit"] {
+  color: #fff;
   background: #ee3efe;
   border: 1px solid #110038;
   -webkit-box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
           box-shadow: inset -1px -1px 0 0 #a72cb3, inset 1px 1px 0 0 #ffffff;
 }
 
-#search form button[type="submit"] p::before {
+#search form button[type="submit"] span:before {
   content: "";
   background: url(../../assets/icons/lupa_light.svg) no-repeat;
   background-repeat: no-repeat;
@@ -239,11 +240,11 @@ header {
   border-color: transparent;
 }
 
-#search form input:placeholder-shown ~ button[type="submit"] p {
+#search form input:placeholder-shown ~ button[type="submit"] span {
   color: #8f8f8f;
 }
 
-#search form input:placeholder-shown ~ button[type="submit"] p::before {
+#search form input:placeholder-shown ~ button[type="submit"] span:before {
   background-image: url(../../assets/icons/CombinedShape.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -262,16 +263,6 @@ header {
           box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
 }
 
-#suggestions .suggested-gifs-container .gif-header-container {
-  background: -webkit-gradient(linear, right top, left top, from(#ee3efe), to(#2e32fb));
-  background: linear-gradient(270deg, #ee3efe 0%, #2e32fb 100%);
-  border-bottom: 2px solid #b4b4b4;
-}
-
-#suggestions .suggested-gifs-container .gif-header-container span {
-  color: #fff;
-}
-
 .trending-gifs-container .gif-container:hover {
   background: #b4b4b4;
   -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
@@ -284,5 +275,91 @@ header {
 
 .trending-gifs-container .gif-container:hover .gif-bottom-container:hover {
   outline-offset: -4px;
+}
+
+#gifs__creation .btn-primary {
+  border: none;
+}
+
+#gifs__creation .btn-primary span {
+  color: #fff;
+}
+
+#gifs__creation .btn-primary.dark-button {
+  background: #110038;
+  -webkit-box-shadow: inset -1px -1px 0 0 #5c5c5c, inset 1px 1px 0 0 #fff4fd;
+          box-shadow: inset -1px -1px 0 0 #5c5c5c, inset 1px 1px 0 0 #fff4fd;
+}
+
+#gifs__creation .btn-primary.dark-button:hover {
+  outline-color: #fff !important;
+}
+
+#gifs__creation .window {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+}
+
+#gifs__creation .window p {
+  color: #110038;
+}
+
+#gifs__creation .camera__svg.dark {
+  display: none;
+}
+
+#gifs__creation .recording__time {
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+#gifs__creation .start-recording:hover *.btn-primary {
+  background: #cf30dd;
+}
+
+#gifs__creation #phase__2 .window-large,
+#gifs__creation #phase__3 .window-large {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+}
+
+#gifs__creation #phase__2 .window-large p,
+#gifs__creation #phase__3 .window-large p {
+  color: #110038;
+}
+
+#gifs__creation #phase__3 .loading-bar {
+  border-top: 2px solid #000;
+  border-left: 2px solid #000;
+}
+
+#gifs__creation #phase__3 .loading-bar__item {
+  border-right: 2px solid #b4b4b4;
+  background: #999;
+}
+
+#gifs__creation #phase__3 .loading-bar__item__active {
+  background: #ee3efe;
+}
+
+#gifs__creation #phase__4 .window-small {
+  background: #b4b4b4;
+  -webkit-box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+          box-shadow: inset -2px -2px 0 0 #8f8f8f, inset 2px 2px 0 0 #fff;
+}
+
+#gifs__creation #phase__4 .window-small .gif-preview {
+  background: #ffffff;
+  border: 1px solid #979797;
+  -webkit-box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+          box-shadow: inset -2px -2px 0 0 #e6e6e6, inset 2px 2px 0 0 #000000;
+}
+
+#gifs__creation #phase__4 p {
+  color: #110038;
 }
 /*# sourceMappingURL=sailor_night.css.map */
