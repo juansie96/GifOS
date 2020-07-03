@@ -409,10 +409,13 @@ section {
   #phase__2 {
     .window-large {
       width: 700px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
     }
 
     #preview-container {
-      max-height: 500px;
+      height: 480px;
       margin: 15px;
     }
 
@@ -420,9 +423,11 @@ section {
     .gif-preview {
       width: 100%;
       height: auto;
+      overflow: hidden;
     }
 
     .window__buttons {
+      display: flex;
       .stop-recording {
         * {
           background: #ff6161;
