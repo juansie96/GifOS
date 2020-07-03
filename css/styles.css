@@ -584,7 +584,7 @@ section {
 }
 
 #gifs__creation #phase__2 #preview-container {
-  max-height: 450px;
+  height: auto;
   margin: 15px;
   overflow: hidden;
 }
