@@ -573,17 +573,32 @@ section {
 
 #gifs__creation #phase__2 .window-large {
   width: 700px;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #gifs__creation #phase__2 #preview-container {
-  max-height: 500px;
+  max-height: 450px;
   margin: 15px;
+  overflow: hidden;
 }
 
 #gifs__creation #phase__2 .video-container,
 #gifs__creation #phase__2 .gif-preview {
   width: 100%;
   height: auto;
+}
+
+#gifs__creation #phase__2 .window__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 #gifs__creation #phase__2 .window__buttons .stop-recording * {

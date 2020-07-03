@@ -415,15 +415,15 @@ section {
     }
 
     #preview-container {
-      height: 480px;
+      max-height: 450px;
       margin: 15px;
+      overflow: hidden;
     }
 
     .video-container,
     .gif-preview {
       width: 100%;
       height: auto;
-      overflow: hidden;
     }
 
     .window__buttons {
