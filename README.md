@@ -1,6 +1,6 @@
 # GifOS - FullStack Web Developer Acámica Course
 #### Juan Manuel Sierra Albrecht
-### [**Webpage LIVE**](https://juansie96.github.io/podcast-acamica/)
+### [**Webpage LIVE**](https://juansie96.github.io/GifOS/)
 
 ---
 
